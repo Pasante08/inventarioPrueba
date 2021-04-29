@@ -18,7 +18,7 @@
 
         public function newUser()
         {
-            require 'views/newUser.php';   
+            require 'views/newUser.php';
         }
 
         public function save()
@@ -42,7 +42,7 @@
                         }
                     }
                     $this->userModel->newUser($user);
-                    $this->computerModel->newEquipo($equipo);
+                    //$this->computerModel->newEquipo($equipo);
                 }
             } catch (Exception $e) {
                 die($e->getMessage());
@@ -51,7 +51,7 @@
 
         public function edit()
         {
-            
+
         }
 
         public function update()

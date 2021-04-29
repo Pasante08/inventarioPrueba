@@ -36,7 +36,7 @@ class user{
     public function newUser($data)
     {
         try {
-            $this->pdo->insert("user", $data);
+            $this->pdo->insert("users", $data);
         } catch (PDOException $e) {
             die($e->getMessage());
         }
@@ -68,7 +68,7 @@ class user{
     public function login($user, $password)
     {
         //try {
-            $table = 'user';
+            $table = 'users';
             $strSql = "SELECT * FROM $table WHERE user ='$user' AND password = '$password'";
             return $this->pdo->select($strSql);
         //} catch (PDOException $e) {

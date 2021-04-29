@@ -15,8 +15,8 @@ CREATE TABLE equipo (
   user_id INT(12) NOT NULL
 );
 
-CREATE TABLE user (
-  document INT(12) PRIMARY KEY NOT NULL,
+CREATE TABLE users (
+  id INT(12) PRIMARY KEY AUTO_INCREMENT NOT NULL,
   name VARCHAR(40) NOT NULL,
   userSap VARCHAR(30) NOT NULL,
   user VARCHAR(20) NOT NULL,
@@ -34,4 +34,8 @@ ADD CONSTRAINT
 FOREIGN KEY
   (user_id)
 REFERENCES
-  user(document);
+  users(id);
+
+
+INSERT INTO `users` (`id`, `name`, `userSap`, `user`, `password`, `ext`, `job`, `area`)
+VALUES (NULL, 'Juan Manuel Marcelo', 'pas.sis', 'Juan123', 'juan123', '2345', 'Pasante', 'Sistemas');

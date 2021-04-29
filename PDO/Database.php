@@ -1,14 +1,14 @@
 <?php
 
 class Database extends PDO
-{	
-	//Definicion de atributos de la clase 
+{
+	//Definicion de atributos de la clase
 	private $driver	='mysql';
 	private $host = 'localhost';
 	private $dbName = 'inventarioprueba';
 	private $charset = 'utf8';
 	private $user = 'root';
-	private $password = '';									
+	private $password = '';
 
 	public function __construct()
 	{
@@ -25,7 +25,7 @@ class Database extends PDO
 	public function select($strSql, $arrayData = array(), $fetchMode = PDO::FETCH_OBJ)
 	{
 		$query = $this->prepare($strSql);
-		
+
 		foreach ($arrayData as $key => $value) {
 			$query->bindParam(":$key", $value);
 		}
@@ -56,19 +56,21 @@ class Database extends PDO
 			}
 			//Ejecución de la sentencia SQL
 			$strSql->execute();
+			//Imprimir el ultimo id insertado
+			print $strSql->lastInsertId();
 		} catch (PDOException $e) {
 			die($e->getMessage());
 		}
 	}
 
-	//Metodo para actualizar un registro en la base de datos 
+	//Metodo para actualizar un registro en la base de datos
 	public function update($table, $data, $where)
 	{
 		try {
 			ksort($data);
-			//Atributos que se actualizaran 
+			//Atributos que se actualizaran
 			$fieldDetails = '';
-			//recorrer los datos paara realizar la actualizacion 
+			//recorrer los datos paara realizar la actualizacion
 			foreach ($data as $key => $value) {
 				//Reasignando el fieldDetails
 				$fieldDetails .= "`$key` =  :$key,";
@@ -77,7 +79,7 @@ class Database extends PDO
 			$fieldDetails = rtrim($fieldDetails, ',');
 
 			$query = $this->prepare("UPDATE $table SET $fieldDetails WHERE $where");
-			//Cargar los parametros al String 
+			//Cargar los parametros al String
 			foreach ($data as $key => $value) {
 				$query->bindValue(":$key", $value);
 			}
@@ -87,7 +89,7 @@ class Database extends PDO
 		}
 	}
 
-	//Metodo para eliminar un registro en la base de datos 
+	//Metodo para eliminar un registro en la base de datos
 	public function delete($table, $where)
 	{
 		try {
