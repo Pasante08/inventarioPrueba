@@ -1,0 +1,99 @@
+body{
+    font-family: "Open Sans", sans-serif;
+    background-color: #fff;
+    font-weight: 400;
+}
+
+h2{
+    text-align: center;
+}
+
+.container{
+    display: block;
+    max-width: 1140px;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.col-sm-12{
+    display: inline;
+    max-width: 100%;
+    margin: 10px;
+}
+
+table{
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    color: #212529;
+}
+
+thead{
+    background-color: #bc0723;
+    color: #fff;
+    height: 3rem;
+    border: 1px solid #000000;
+}
+
+tbody tr td{
+    padding-left: 1.5rem;
+    height: 3rem;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #fff;
+}
+  
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.btn-edit{
+    color:#fff;
+    background-color: #6c757d;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    padding: 5px;
+    text-align: start;
+    text-decoration: none;   
+}
+
+.btn-edit:hover{
+    background-color:#5a6268;
+    color: #000000;
+}
+
+.btn-delete{
+    color:#fff;
+    background-color: #bc0723;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    padding: 5px;
+    text-align: start;
+    text-decoration: none;   
+}
+
+.btn-delete:hover{
+    background-color:#c53047;
+    color: #000000;
+}
+
+.btn-return{
+    color:#fff;
+    background-color: #6c757d;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    padding: 7px;
+    text-align: start;
+    text-decoration: none;
+    margin: 10px 10px 10px 0;  
+}
+
+.btn-return:hover{
+    background-color:#5e666d;
+    color: #000000;
+}

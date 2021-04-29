@@ -1,0 +1,49 @@
+body{
+    font-family: "Open Sans", sans-serif;
+    background-color: #fff;
+    font-weight: 400;
+    margin: 0px;
+}
+
+.navbar{
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    display: flex;
+    background-color: #c94545;
+    width: 100%;
+    height: auto;
+    border: 1px solid black;
+}
+
+ul, ol{
+    list-style: none;
+}
+
+.nav li a{
+    background-color: #c94545;
+    color: black;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    border: 1px solid ;
+}
+
+.nav li a:hover{
+    background-color: #91071b;
+    color: white;
+    border: 1px solid black;
+}
+.nav > li {
+    margin-top: 0;
+}
+
+.nav li ul{
+    display: none;
+    position: absolute;
+    min-width: 100px;
+}
+
+.nav li:hover > ul{
+    display: block;
+}

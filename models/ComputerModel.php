@@ -1,0 +1,84 @@
+<?php
+
+class Computer
+{
+    private $id;
+    private $serial;
+    private $computer;
+    private $provider;
+    private $model;
+    private $ip;
+    private $ipTel;
+    private $workstation;
+    private $win_Version;
+    private $active;
+    private $note;
+    private $user_id;
+    private $pdo;
+
+    public function __construct()
+    {
+        try {
+            $this->pdo = new Database;
+        } catch (PDOException $e) {
+            die($e->getMessage());
+        }
+    }
+
+    //Consultar todos los registros de la tabla computer
+    public function getAll()
+    {
+        try {
+            $strSql = "SELECT * FROM equipo";
+            return $this->pdo->select($strSql);
+        } catch (PDOException $e) {
+            die($e->getMessage());
+        }
+    }
+
+    //Insertar un nuevo registro en la DB
+    public function newEquipo($data)
+    {
+        try {
+            $this->pdo->insert("equipo", $data);
+        } catch (\Throwable $th) {
+            die($e->getMessage());
+        }
+    }
+
+    //Consultar registro por ID
+    public function getById($id)
+    {
+        try {
+            $strSql = "SELECT * FROM equipo WHERE id=:id";
+            $arrayData = ['id' => $id];
+            return $this->pdo->select ($strSql, $arrayData);
+        } catch (PDOException $e) {
+            die($e->getMessage());
+        }
+    }
+
+    //Editar un registro de a DB
+    public function editEquipo($data)
+    {
+        try {
+            $strWhere = 'id = '.$data['id'];
+            $table = 'equipo';
+            $this->pdo->update($table, $data, $strWhere);
+        } catch (PDOException $e) {
+            die($e->getMessage());
+        }
+    }
+
+    //
+    public function deleteEquipo($data)
+    {
+        try {
+            $strWhere = 'id = '.$data['id'];
+            $table = 'equipo';
+            $this->pdo->delete($table, $strWhere);
+        } catch (PDOException $e) {
+            die($e->getMessage());
+        }
+    }
+}
