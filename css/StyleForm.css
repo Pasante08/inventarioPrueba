@@ -74,6 +74,11 @@ h2{
     max-width: 10%;
 }
 
+.col-2A{
+    margin: 10px 0 10px 0;
+    max-width: 15%;
+}
+
 .col-3{
     margin: 10px 0 10px 0;
     max-width: 23%;
@@ -125,7 +130,7 @@ input[type=number]::-webkit-outer-spin-button{
     padding: 5px;
     text-align: start;
     text-decoration: none;
-    margin: 10px;  
+    margin: 10px;
 }
 
 .btn-save:hover{
@@ -145,7 +150,7 @@ input[type=number]::-webkit-outer-spin-button{
     padding: 5px;
     text-align: start;
     text-decoration: none;
-    margin: 10px;  
+    margin: 10px;
 }
 
 .btn-return:hover{

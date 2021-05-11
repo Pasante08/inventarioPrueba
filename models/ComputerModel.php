@@ -9,10 +9,9 @@ class Computer
     private $model;
     private $ip;
     private $ipTel;
-    private $workstation;
     private $win_Version;
     private $active;
-    private $note;
+    private $comment;
     private $user_id;
     private $pdo;
 
