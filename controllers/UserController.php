@@ -1,6 +1,8 @@
 <?php
 
     require 'models/UserModel.php';
+    require 'models/sedeModel.php';
+    require 'models/chargeModel.php';
 
     class userController
     {
@@ -18,27 +20,59 @@
 
         public function newUser()
         {
-              
+              require 'views/newUser.php';
         }
 
         public function save()
         {
-            
+            try {
+              if (isset($_POST['name'])) {
+                $this->userModel->newUser($_POST);
+              }
+            } catch (Exception $e) {
+              die($e->getMessage());
+            }
+
         }
 
         public function edit()
         {
-            
+          try {
+            if (isset($_REQUEST['id'])) {
+              $id = $_REQUEST['id'];
+              $user = $this->userModel->getById($id);
+              $sedes = new Sedes;
+              $charges = new Charges;
+              $sedes = $sedes->getAll();
+              $charges = $charges->getAll();
+              require 'views/edit.php';
+            }
+            else{
+              echo "El usuario no existe";
+            }
+          } catch (Exception $e) {
+            die($e->getMessage());
+          }
+
         }
 
         public function update()
         {
+          try {
+            if (isset($_POST)) {
+              $this->userModel->editUser($_POST);
+            }else{
+              echo "Error, accion no permitida";
+            }
+          } catch (Exception $e) {
+            die($e->getMessage());
+          }
 
         }
 
         public function delete()
         {
-            
+          $this->userModel->deleteUser($_REQUEST);
         }
 
         public function ctrIngreso()

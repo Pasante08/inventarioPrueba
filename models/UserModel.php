@@ -7,6 +7,8 @@ class user{
     private $user;
     private $password;
     private $ext;
+    private $sede_id;
+    private $charge_id;
     private $pdo;
 
     public function __construct()
@@ -22,7 +24,14 @@ class user{
     public function getALL()
     {
         try {
-            $strSql = "SELECT * FROM users ORDER BY id ASC";
+            $strSql = "SELECT u.*,
+                s.name as sede,
+                c.name as charge
+              FROM users u
+              INNER JOIN sede s
+              ON s.id = u.sede_id
+              INNER JOIN charge c
+              ON c.id = u.charge_id";
             return $this->pdo->select($strSql);
         } catch (PDOException $e) {
             die($e->getMessage());

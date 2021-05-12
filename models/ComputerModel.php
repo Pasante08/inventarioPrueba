@@ -13,6 +13,7 @@ class Computer
     private $active;
     private $comment;
     private $user_id;
+    private $workstation;
     private $pdo;
 
     public function __construct()
@@ -28,7 +29,14 @@ class Computer
     public function getAll()
     {
         try {
-            $strSql = "SELECT * FROM equipo";
+            $strSql = "SELECT e.*,
+                    u.name as users,
+                    w.name as workstation
+                FROM equipo e
+                INNER JOIN users u
+                ON u.id = e.user_id
+                INNER JOIN workstation w
+                ON w.id = e.workstation_id";
             return $this->pdo->select($strSql);
         } catch (PDOException $e) {
             die($e->getMessage());
