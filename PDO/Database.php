@@ -57,7 +57,7 @@ class Database extends PDO
 			//Ejecución de la sentencia SQL
 			$strSql->execute();
 			//Imprimir el ultimo id insertado
-			print $strSql->lastInsertId();
+			return $strSql->lastInsertId();
 		} catch (PDOException $e) {
 			die($e->getMessage());
 		}
