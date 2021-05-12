@@ -2,14 +2,11 @@
 
 class user{
 
-    private $document;
     private $name;
     private $userSap;
     private $user;
     private $password;
     private $ext;
-    private $job;
-    private $area;
     private $pdo;
 
     public function __construct()
@@ -25,7 +22,7 @@ class user{
     public function getALL()
     {
         try {
-            $strSql = "SELECT * FROM user ORDER BY id ASC";
+            $strSql = "SELECT * FROM users ORDER BY id ASC";
             return $this->pdo->select($strSql);
         } catch (PDOException $e) {
             die($e->getMessage());

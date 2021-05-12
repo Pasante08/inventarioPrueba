@@ -18,40 +18,17 @@
 
         public function newUser()
         {
-            require 'views/newUser.php';
+              
         }
 
         public function save()
         {
-            try {
-                if (isset($_POST['name'])) {
-                    $user = array();
-                    $equipo = array();
-                    $i = 0;
-                    foreach ($_POST as $key => $value) {
-                        if ($i < 8) {
-                            $user[$key] = $_POST[$key];
-                            $i++;
-                        }elseif ($key != "job") {
-                            $equipo[$key] = $_POST[$key];
-                        }
-                    }
-                    foreach ($user as $key => $value) {
-                        if ($key == id) {
-                            $equipo["user_id"] = $user[$key];
-                        }
-                    }
-                    $this->userModel->newUser($user);
-                    //$this->computerModel->newEquipo($equipo);
-                }
-            } catch (Exception $e) {
-                die($e->getMessage());
-            }
+            
         }
 
         public function edit()
         {
-
+            
         }
 
         public function update()
@@ -61,7 +38,7 @@
 
         public function delete()
         {
-            $this->userModel->deleteUser($_REQUEST);
+            
         }
 
         public function ctrIngreso()

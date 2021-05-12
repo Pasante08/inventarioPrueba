@@ -13,7 +13,6 @@
 
         public function Index()
         {
-            $users = $this->userModel->getAll();
             require 'views/index.html';
         }
 
