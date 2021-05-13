@@ -20,10 +20,10 @@
         public function getAll()
         {
             try {
-                $strSql = "SELECT F.*,
+                $strSql = "SELECT f.*,
                         a.name as area
                         FROM file f
-                        isset($_POST['name'])          INNER JOIN area a
+                        INNER JOIN area a
                         ON a.id = f.area_id";
                 return $this->pdo->select($strSql);
             } catch (PDOException $e) {

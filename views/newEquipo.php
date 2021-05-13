@@ -21,7 +21,7 @@
                     <div class="form-row">
                         <div class="group">
                             <label for="computer">Equipo</label>
-                            <select name="computer" id="computer" class="input-form" required>
+                            <select name="computer" id="computer" class="input-form" >
                                 <option selected>Seleccione...</option>
                                 <option value="portatil">Portatil</option>
                                 <option value="escritorio">Escritorio</option>
@@ -30,30 +30,57 @@
                         </div>
                         <div class="group">
                             <label for="provider">Marca</label>
-                            <input type="text" name="provider" id="provider" class="input-form" placeholder="Ingrese la marca del equipo" required>
+                            <input type="text" name="provider" id="provider" class="input-form" placeholder="Ingrese la marca del equipo" >
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="group">
                             <label for="model">Modelo</label>
-                            <input type="text" name="model" id="model" class="input-form" placeholder="Ingrese el modelo" required>
+                            <input type="text" name="model" id="model" class="input-form" placeholder="Ingrese el modelo" >
                         </div>
                         <div class="group">
                             <label for="serial">Serial</label>
-                            <input type="text" name="serial" id="serial" class="input-form" placeholder="Ingrese el serial" required>
+                            <input type="text" name="serial" id="serial" class="input-form" placeholder="Ingrese el serial" >
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="group">                                                                                                                                                                                                                                                     
-                            <label for="ip">Extension IP</label>
+                            <label for="ip">Extension IP Equipo</label>
                             <div class="join">
                                 <input type="text" value="192.158.0." class="input-form-join col-3" readonly>
                                 <input type="number" name="ip" id="ip" class="input-form-join col-2" placeholder="" required>
                             </div>
                         </div>
                         <div class="group">
-                            <label for="workstation">Estación de trabajo</label>
-                            <input type="text" name="workstation" id="workstation" class="input-form" placeholder="Ingrese la estación de trabajo" required>
+                            <label for="ipTel">Extension IP teléfono</label>
+                            <div class="join">
+                                <input type="text" value="10.10.1." class="input-form-join col-2A" readonly>
+                                <input type="number" name="ipTel" id="ipTel" class="input-form-join col-2" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="group">
+                            <label for="workstation_id">Estación de trabajo</label>
+                            <select name="workstation_id" id="workstation_id" class="input-form">
+                                <option>Seleccione...</option>
+                                <?php
+                                    foreach ($workstation as $workstation) {
+                                        echo '<option value="'.$workstation->id.'">'.$workstation->name.'</option>';
+                                    }
+                                ?>
+                            </select>
+                        </div>
+                        <div class="group">
+                            <label for="user_id">Usuario</label>
+                            <select name="user_id" id="user_id" class="input-form">
+                                <option>Seleccione...</option>
+                                <?php
+                                    foreach ($users as $users) {
+                                        echo '<option value="'.$users->id.'">'.$users->name.'</option>';
+                                    }
+                                ?>
+                            </select>
                         </div>
                         <div class="group">
                             <label for="win_Version">Versión de S.O</label>
@@ -81,8 +108,8 @@
                     </div>
                     <div class="form-row">
                         <div class="group">
-                            <label for="note">Observaciones</label>
-                            <textarea name="note" id="note" class="input-textArea" rows="3" placeholder="Ingrese las observaciones del equipo"></textarea>
+                            <label for="comment">Observaciones</label>
+                            <textarea name="comment" id="comment" class="input-textArea" rows="3" placeholder="Ingrese las observaciones del equipo"></textarea>
                         </div>
                     </div>
                     <hr>

@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/StyleForm.css">
     <link rel="shortcut icon" type="image/png" href="./assets/img/Logo_peque_ferreteria.fw.png" />
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	crossorigin="anonymous"></script>
     <title>Nuevo usuario</title>
 </head>
 <body>
@@ -18,19 +19,19 @@
             <h2>Información</h2>
         </div>
         <div class="card-body">
-            <form action="?controller=User&method=save" method="POST">
+            <form action="?controller=User&method=chargesAreas" method="POST">
                     <div class="form-row">
-                        <div class="group"> 
+                        <div class="group">
                             <label for="name">Nombres</label>
                             <input type="text" name="name" id="name" class="input-form" placeholder="Ingrese el nombre completo" autofocus>
                         </div>
-                        <div class="group"> 
+                        <div class="group">
                             <label for="userSap">Usuario SAP</label>
                             <input type="text" name="userSap" id="userSap" class="input-form" placeholder="Ingrese el usuario">
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="group"> 
+                        <div class="group">
                             <label for="user">Usuario</label>
                             <input type="text" name="user" id="user" class="input-form" placeholder="Ingrese el usuario">
                         </div>
@@ -60,7 +61,7 @@
                         <div class="group">
                             <label for="areasList">Area</label>
                             <select name="areasList" id="areasList" class="input-form">
-                                    <option>Seleccione...</option>
+                                    <option value="0">Seleccione...</option>
                                     <?php
                                         foreach ($areas as $areas) {
                                             echo '<option value="'.$areas->id.'">'.$areas->name.'</option>';
@@ -69,14 +70,8 @@
                             </select>
                         </div>
                         <div class="group">
-                            <label for="">Cargo</label>
-                            <select name="" class="input-form">
-                                <option>Seleccione...</option>
-                                <?php
-                                    foreach ($charges as $charges) {
-                                        echo '<option value="'.$charges->id.'">'.$charges->name.'</option>';
-                                    }
-                                ?>
+                            <label for="charge">Cargo</label>
+                            <select name="charge" id="charge" class="input-form">
                             </select>
                         </div>
                     </div>
@@ -101,7 +96,7 @@
         });
     })
 </script>
-<script>
+<script type="text/javascript">
     function recargarLista(){
         $.ajax({
             type:"POST",

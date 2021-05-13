@@ -1,6 +1,6 @@
 <?php
 
-class user{
+class User{
 
     private $name;
     private $userSap;
@@ -21,7 +21,7 @@ class user{
     }
 
     //Consultar todos los registros de la DB
-    public function getALL()
+    public function getAll()
     {
         try {
             $strSql = "SELECT u.*,
@@ -34,6 +34,22 @@ class user{
               ON c.id = u.charge_id";
             return $this->pdo->select($strSql);
         } catch (PDOException $e) {
+            die($e->getMessage());
+        }
+    }
+
+    public function list()
+    {
+        try {
+            $strSql = "SELECT u.id, e.ip, u.name AS user, w.name, c.name AS charge FROM users AS u
+                INNER JOIN equipo AS e
+                ON u.id = e.user_id
+                INNER JOIN workstation AS w
+                ON w.id = e.Workstation_id
+                INNER JOIN charge AS c
+                ON c.id = u.charge_id";
+                return $this->pdo->select($strSql);
+        } catch (\PDOException $e) {
             die($e->getMessage());
         }
     }

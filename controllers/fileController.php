@@ -15,17 +15,28 @@
         public function Index()
         {
             $files = $this->fileModel->getAll();
+            require 'views/listArchive.php';
         }
 
         public function new()
         {
             $areas = new Area;
             $areas = $areas->getAll();
+            require 'views/newDoc.php';
         }
 
         public function save()
         {
-            $this->fileModel->newFile($_POST);
+            if (isset($_POST['area_id'])) {
+                $file = $_FILES["file"];
+                move_uploaded_file($file["tmp_name"], "Doc/".$file["name"]);
+                $_POST['name'] = $file['name'];
+                $_POST['location'] = "Doc/".$file['name'];
+                $this->fileModel->newFile($_POST);
+                header("Location: " . $_SERVER["HTTP_REFERER"]);
+                /*
+                $this->fileModel->newFile($_POST);*/
+            }
         }
 
         public function edit()

@@ -1,6 +1,6 @@
 <?php
 
-    require 'models/ComputerModel.php';
+    require 'models/computerModel.php';
     require 'models/userModel.php';
     require 'models/workstationModel.php';
 
@@ -15,11 +15,17 @@
 
         public function Index()
         {
-            require 'views/index.html';
+            require 'views/layout.php';
+            require 'views/index.php';
         }
 
         public function newEquipo()
         {
+            $users = new User;
+            $users = $users->getAll();
+            $workstation = new Workstation;
+            $workstation = $workstation->getAll();
+            require 'views/layout.php';
             require 'views/newEquipo.php';
         }
 
@@ -39,8 +45,8 @@
           try {
             if (isset($_REQUEST['id'])) {
               $id = $_REQUEST['id'];
-              $equipo =  $this->$computerModel->getById($id);
-              $users = new Users;
+              $equipo =  $this->computerModel->getById($id);
+              $users = new User;
               $workstation = new Workstation;
               $users = $users->getAll();
               $workstation = $workstation->getAll();
@@ -63,6 +69,6 @@
 
         public function delete()
         {
-            $this->computerModel->deleteComputer($_REQUEST);
+            $this->computerModel->deleteEquipo($_REQUEST);
         }
     }

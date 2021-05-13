@@ -16,7 +16,13 @@
 
         public function Index()
         {
+            require 'views/layout.php';
             require 'views/index.php';
+        }
+
+        public function listArchive()
+        {
+          require 'views/listArchive.php';
         }
 
         public function newUser()
@@ -25,14 +31,18 @@
               $sedes = $sedes->getAll();
               $areas = new Area;
               $areas = $areas->getAll();
+              require 'views/layout.php';
               require 'views/newUser.php';
         }
 
         public function chargesAreas()
         {
-          $charges = new Charge;
-          $charges = $charges->getAll();
-          
+          if (isset($_POST['area'])) {
+            $id = $_POST['area'];
+            $charges = new Charge;
+            $charges = $charges->listCharges($id);
+            //echo '<option value="'..'"'
+          } 
         }
 
         public function save()
@@ -44,7 +54,14 @@
             } catch (Exception $e) {
               die($e->getMessage());
             }
+        }
 
+        public function listGeneral()
+        {
+          $list = $this->userModel->list();
+          /*print_r($list);
+          die();*/
+          require 'views/listUser.php';
         }
 
         public function edit()
@@ -53,8 +70,8 @@
             if (isset($_REQUEST['id'])) {
               $id = $_REQUEST['id'];
               $user = $this->userModel->getById($id);
-              $sedes = new Sedes;
-              $charges = new Charges;
+              $sedes = new Sede;
+              $charges = new Charge;
               $sedes = $sedes->getAll();
               $charges = $charges->getAll();
               require 'views/edit.php';
