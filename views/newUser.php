@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/StyleForm.css">
     <link rel="shortcut icon" type="image/png" href="./assets/img/Logo_peque_ferreteria.fw.png" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <title>Nuevo usuario</title>
 </head>
 <body>
@@ -21,21 +22,11 @@
                     <div class="form-row">
                         <div class="group"> 
                             <label for="name">Nombres</label>
-                            <input type="text" name="name" id="name" class="input-form" placeholder="Ingrese el nombre completo" required autofocus>
+                            <input type="text" name="name" id="name" class="input-form" placeholder="Ingrese el nombre completo" autofocus>
                         </div>
-                        <div class="group"> 
-                            <label for="document">Documento</label>
-                            <input type="text" name="document" id="document" class="input-form" placeholder="Ingrese el numero de documento" required>
-                        </div>
-                    </div>
-                    <div class="form-row">
                         <div class="group"> 
                             <label for="userSap">Usuario SAP</label>
-                            <input type="text" name="userSap" id="userSap" class="input-form" placeholder="Ingrese el usuario" required>
-                        </div>
-                        <div class="group">
-                            <label for="ext">Ext</label>
-                            <input type="number" name="ext" id="ext" class="input-form" placeholder="Ingrese la extension" required>
+                            <input type="text" name="userSap" id="userSap" class="input-form" placeholder="Ingrese el usuario">
                         </div>
                     </div>
                     <div class="form-row">
@@ -50,88 +41,43 @@
                     </div>
                     <div class="form-row">
                         <div class="group">
-                            <label for="area">Area</label>
-                            <input type="text" name="area" id="area" class="input-form" placeholder="Ingrese el area" required>
+                            <label for="ext">Ext</label>
+                            <input type="number" name="ext" id="ext" class="input-form" placeholder="Ingrese la extension">
                         </div>
                         <div class="group">
-                            <label for="job">Cargo</label>
-                            <input type="text" name="job" id="job" class="input-form"  placeholder="Ingrese el cargo"required>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="group">
-                            <label for="computer">Equipo</label>
-                            <select name="computer" id="computer" class="input-form" required>
-                                <option selected>Seleccione...</option>
-                                <option value="portatil">Portatil</option>
-                                <option value="escritorio">Escritorio</option>
-                                <option value="todo_en_uno">Todo en uno</option>
-                            </select>
-                        </div>
-                        <div class="group">
-                            <label for="provider">Marca</label>
-                            <input type="text" name="provider" id="provider" class="input-form" placeholder="Ingrese la marca del equipo" required>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="group">
-                            <label for="model">Modelo</label>
-                            <input type="text" name="model" id="model" class="input-form" placeholder="Ingrese el modelo" required>
-                        </div>
-                        <div class="group">
-                            <label for="serial">Serial</label>
-                            <input type="text" name="serial" id="serial" class="input-form" placeholder="Ingrese el serial" required>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="group">                                                                                                                                                                                                                                                     
-                            <label for="ip">Extension IP</label>
-                            <div class="join">
-                                <input type="text" value="192.158.0." class="input-form-join col-3" readonly>
-                                <input type="number" name="ip" id="ip" class="input-form-join col-2" placeholder="" required>
-                            </div>
-                        </div>
-                        <div class="group">                                                                                                                                                                                                                                                     
-                            <label for="ipTel">Extension IP teléfono</label>
-                            <div class="join">
-                                <input type="text" value="192.158.0." class="input-form-join col-3" readonly>
-                                <input type="number" name="ipTel" id="ipTel" class="input-form-join col-2" placeholder="" required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="group">
-                            <label for="workstation">Estación de trabajo</label>
-                            <input type="text" name="workstation" id="workstation" class="input-form" placeholder="Ingrese la estación de trabajo" required>
-                        </div>
-                        <div class="group">
-                            <label for="win_Version">Versión de S.O</label>
-                            <select name="win_Version" id="win_Version" class="input-form" required>
-                                <option selected>Seleccione...</option>
-                                <option value="Windows_10_x64">Windows 10 x64</option>
-                                <option value="Windows_10_x32">Windows 10 x32</option>
-                                <option value="Windows_7_x64">Windows 7 x64</option>
-                                <option value="Windows_7_x32">Windows 7 x32</option>
+                            <label for="sede_id">Sede</label>
+                            <select name="sede_id" class="input-form">
+                                <option>Seleccione...</option>
+                                <?php
+                                    foreach ($sedes as $sedes) {
+                                        echo '<option value="'.$sedes->id.'">'.$sedes->name.'</option>';
+                                    }
+                                ?>
                             </select>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="group">
-                            <label class="label-check" for="active">Esta versión tiene licencia?</label>
-                            <div>
-                                <input type="radio" name="active" value="✔"/>
-                                <label>Si</label>
-                            </div>
-                            <div>
-                                <input type="radio" name="active" value="X"/>
-                                <label>No</label>
-                            </div>
+                            <label for="areasList">Area</label>
+                            <select name="areasList" id="areasList" class="input-form">
+                                    <option>Seleccione...</option>
+                                    <?php
+                                        foreach ($areas as $areas) {
+                                            echo '<option value="'.$areas->id.'">'.$areas->name.'</option>';
+                                        }
+                                    ?>
+                            </select>
                         </div>
-                    </div>
-                    <div class="form-row">
                         <div class="group">
-                            <label for="note">Observaciones</label>
-                            <textarea name="note" id="note" class="input-textArea" rows="3" placeholder="Ingrese las observaciones del equipo"></textarea>
+                            <label for="">Cargo</label>
+                            <select name="" class="input-form">
+                                <option>Seleccione...</option>
+                                <?php
+                                    foreach ($charges as $charges) {
+                                        echo '<option value="'.$charges->id.'">'.$charges->name.'</option>';
+                                    }
+                                ?>
+                            </select>
                         </div>
                     </div>
                     <hr>
@@ -145,3 +91,25 @@
     </div>
 </body>
 </html>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#areasList').val(1);
+        recargarLista();
+
+        $('#areasList').change(function(){
+            recargarLista();
+        });
+    })
+</script>
+<script>
+    function recargarLista(){
+        $.ajax({
+            type:"POST",
+            url:"?controller=User&method=chargesAreas",
+            data:"area=" + $('#areasList').val(),
+            success:function(r){
+                $('#charge').html(r);
+            }
+        });
+    }
+</script>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-05-2021 a las 23:14:08
+-- Tiempo de generación: 12-05-2021 a las 21:40:50
 -- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 7.3.27
 
@@ -81,13 +81,6 @@ CREATE TABLE `equipo` (
   `workstation_id` int(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Volcado de datos para la tabla `equipo`
---
-
-INSERT INTO `equipo` (`id`, `serial`, `computer`, `provider`, `model`, `ip`, `ipTel`, `win_Version`, `active`, `comment`, `user_id`, `workstation_id`) VALUES
-(1, '', 'portatil', 'Lenovo', '', 102, 72, 'Windows 10 x64', 'X', 'Conexión por cable, IP automática ', 1, 2);
-
 -- --------------------------------------------------------
 
 --
@@ -136,13 +129,6 @@ CREATE TABLE `users` (
   `sede_id` int(12) NOT NULL,
   `charge_id` int(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `users`
---
-
-INSERT INTO `users` (`id`, `name`, `userSap`, `user`, `password`, `ext`, `sede_id`, `area_id`) VALUES
-(1, 'Juan Manuel Marcelo', 'pas.sis', 'Sistemas', 'Reinoso01', 0, 1, );
 
 -- --------------------------------------------------------
 

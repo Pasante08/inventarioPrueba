@@ -55,4 +55,15 @@
                 die($e->getMessage());
             }
         }
+
+        public function deleteWorkstation($data)
+        {
+            try{
+                $strWhere = 'id = '. $data['id'];
+                $table = 'workstation';
+                $this->pdo->delete($table, $strWhere);
+            }catch(PDOException $e){
+                die($e->getMessage());
+            }
+        }
     }

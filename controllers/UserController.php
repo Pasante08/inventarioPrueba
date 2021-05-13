@@ -3,6 +3,7 @@
     require 'models/UserModel.php';
     require 'models/sedeModel.php';
     require 'models/chargeModel.php';
+    require 'models/areaModel.php';
 
     class userController
     {
@@ -20,7 +21,18 @@
 
         public function newUser()
         {
+              $sedes = new Sede;
+              $sedes = $sedes->getAll();
+              $areas = new Area;
+              $areas = $areas->getAll();
               require 'views/newUser.php';
+        }
+
+        public function chargesAreas()
+        {
+          $charges = new Charge;
+          $charges = $charges->getAll();
+          
         }
 
         public function save()
