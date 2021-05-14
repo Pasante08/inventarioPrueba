@@ -20,8 +20,12 @@
 
         public function newCharge()
         {
-            require 'views/index.php';
-        }
+              $areas = new Area;
+              $areas = $areas->getAll();
+              foreach ($areas as $areas) {
+                echo '<option value='.$areas->id.'>'.$areas->name.'</option>';
+              }
+          }
 
         public function save()
         {

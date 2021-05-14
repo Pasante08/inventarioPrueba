@@ -42,9 +42,9 @@
             $charges = new Charge;
             $charges = $charges->listCharges($id);
             foreach ($charges as $charge) {
-              echo '<option value='.$charge->id.'>'.$charge->name.'</option>'; 
+              echo '<option value='.$charge->id.'>'.$charge->name.'</option>';
             }
-          } 
+          }
         }
 
         public function save()
