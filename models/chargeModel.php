@@ -41,7 +41,7 @@
               FROM charge c
               INNER JOIN area a
               ON a.id = c.area_id
-              WHERE c.id=:id";
+              WHERE a.id=:id";
           $arrayData = ['id' => $id];
           return $this->pdo->select($strSql, $arrayData);
         } catch (PDOException $e) {

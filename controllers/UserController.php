@@ -41,7 +41,9 @@
             $id = $_POST['area'];
             $charges = new Charge;
             $charges = $charges->listCharges($id);
-            //echo '<option value="'..'"'
+            foreach ($charges as $charge) {
+              echo '<option value='.$charge->id.'>'.$charge->name.'</option>'; 
+            }
           } 
         }
 
@@ -49,6 +51,7 @@
         {
             try {
               if (isset($_POST['name'])) {
+                unset($_POST['areasList']);
                 $this->userModel->newUser($_POST);
               }
             } catch (Exception $e) {

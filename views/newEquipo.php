@@ -17,7 +17,7 @@
             <h2>Información</h2>
         </div>
         <div class="card-body">
-            <form action="?controller=User&method=save" method="POST">
+            <form action="?controller=Computer&method=save" method="POST">
                     <div class="form-row">
                         <div class="group">
                             <label for="computer">Equipo</label>

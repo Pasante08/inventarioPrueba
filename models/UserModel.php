@@ -41,7 +41,8 @@ class User{
     public function list()
     {
         try {
-            $strSql = "SELECT u.id, e.ip, u.name AS user, w.name, c.name AS charge FROM users AS u
+            $strSql = "SELECT u.id, e.ip, u.name AS user, w.name, c.name AS charge 
+                FROM users AS u
                 INNER JOIN equipo AS e
                 ON u.id = e.user_id
                 INNER JOIN workstation AS w

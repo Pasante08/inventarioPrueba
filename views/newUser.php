@@ -19,7 +19,7 @@
             <h2>Información</h2>
         </div>
         <div class="card-body">
-            <form action="?controller=User&method=chargesAreas" method="POST">
+            <form action="?controller=User&method=save" method="POST">
                     <div class="form-row">
                         <div class="group">
                             <label for="name">Nombres</label>
@@ -70,8 +70,8 @@
                             </select>
                         </div>
                         <div class="group">
-                            <label for="charge">Cargo</label>
-                            <select name="charge" id="charge" class="input-form">
+                            <label for="charge_id">Cargo</label>
+                            <select name="charge_id" id="charge_id" class="input-form">
                             </select>
                         </div>
                     </div>
@@ -100,10 +100,10 @@
     function recargarLista(){
         $.ajax({
             type:"POST",
-            url:"?controller=User&method=chargesAreas",
+            url:"?controller=user&method=chargesAreas",
             data:"area=" + $('#areasList').val(),
             success:function(r){
-                $('#charge').html(r);
+                $('#charge_id').html(r);
             }
         });
     }
