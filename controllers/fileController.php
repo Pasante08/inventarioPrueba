@@ -34,8 +34,6 @@
                 $_POST['location'] = "Doc/".$file['name'];
                 $this->fileModel->newFile($_POST);
                 header("Location: " . $_SERVER["HTTP_REFERER"]);
-                /*
-                $this->fileModel->newFile($_POST);*/
             }
         }
 
@@ -62,6 +60,10 @@
 
         public function delete()
         {
-            $this->fileModel->deletefile($_REQUEST);
+            if (isset($_REQUEST['id'])) {
+                unlink($_REQUEST["name"]);
+                $this->fileModel->deletefile($_REQUEST);
+                header("Location: " . $_SERVER["HTTP_REFERER"]);
+            }
         }
     }

@@ -17,14 +17,15 @@
             }
         }
 
-        public function getAll()
+        public function getAll($id)
         {
             try {
-                $strSql = "SELECT f.*,
+                $strSql = 'SELECT f.*,
                         a.name as area
                         FROM file f
                         INNER JOIN area a
-                        ON a.id = f.area_id";
+                        ON a.id = f.area_id
+                        WHERE a.name = "'.$id.'"';
                 return $this->pdo->select($strSql);
             } catch (PDOException $e) {
                 die($e->getMessage());
@@ -67,7 +68,7 @@
             try {
                 $strWhere = 'id = '. $data['id'];
                 $table = 'file';
-                $this->pdo-delete($table, $strWhere);
+                $this->pdo->delete($table, $strWhere);
             } catch (\PDOException $e) {
                 die($e->getMessage());
             }

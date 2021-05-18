@@ -6,27 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista Bogotá</title>
     <link rel="stylesheet" type="text/css" href="css/StyleTable.css">
+    <link rel="stylesheet" href="css/StyleIndex.css">
     <link rel="shortcut icon" type="image/png" href="./assets/img/Logo_peque_ferreteria.fw.png" />
 </head>
 <body>
+    <nav>
+        <ul>
+            <li class="rightli"><a href="?controller=User&method=close">Cerrar sesión</a></li>
+        </ul>
+    </nav>
     <div>
         <h2>Archivos</h2>
     </div>
         <main class="container">
             <div class="col-sm-12">
-                <a href="?controller=User&method=index" class="btn btn-return">Volver</a>
                 <table id="miTable">
                     <thead>
                         <th>id</th>
                         <th>Nombre del archivo</th>
-                        <th>descargar</th>
+                        <th>Funciones</th>
                     </thead>
                     <tbody>
                         <?php foreach ($files as $file) : ?>
                         <tr>
                             <td><?php echo $file->id ?></td>
                             <td><?php echo $file->name ?></td>
-                            <td><a href="Doc/<?php echo $file->name; ?>" download="<?php echo $file->name ?>">download</a></td>
+                            <td>
+                                <a href="Doc/<?php echo $file->name; ?>" download="<?php echo $file->name?>">Descargar</a>
+                                <a href="?controller=File&method=delete&id=<?php echo $file->id ?>&name=Doc/<?php echo $file->name?>">Eliminar</a>
+                            </td>
                         </tr>
                         <?php endforeach ?>
                     </tbody>

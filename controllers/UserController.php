@@ -4,6 +4,7 @@
     require 'models/sedeModel.php';
     require 'models/chargeModel.php';
     require 'models/areaModel.php';
+    require 'models/fileModel.php';
 
     class userController
     {
@@ -22,7 +23,12 @@
 
         public function listArchive()
         {
-          require 'views/listArchive.php';
+          if (isset($_REQUEST['id'])) {
+            $id = $_REQUEST['id'];
+            $files = new File;
+            $files = $files->getAll($id);
+            require 'views/listArchive.php';
+          }
         }
 
         public function newUser()
@@ -113,6 +119,8 @@
                 $user = $_POST['user'];
                 $password = $_POST['password'];
                 $res = $this->userModel->login($user, $password);
+                /*print_r($res);
+                die();*/
                 if ($res != null) {
                     if ($res[0]->user == $_POST['user'] && $res[0]->password == $_POST['password']) {
                         $_SESSION["validateLogin"] = "correct";
@@ -122,7 +130,12 @@
                             window.history.replaceState(null, null, window.location.href);
                         }
                         </script>";
-                        header ('Location: views/index.php');
+                        if ($res[0]->name != 'Sistemas') {
+                          header('Location: ?controller=user&method=listArchive&id='.$res[0]->name.'');
+                        }else{
+                          require 'views/layout.php';
+                          require 'views/index.php';
+                        }
                     }
                     else{
                         echo "<script>
@@ -144,5 +157,12 @@
                         </script>";
                 }
             }
+        }
+
+        public function close()
+        {
+          /*session_destroy();
+          echo '<script> window.location = "index.html"; </script>';*/
+          require 'views/close.php';
         }
     }

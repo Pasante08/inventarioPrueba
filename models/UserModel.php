@@ -92,7 +92,13 @@ class User{
     {
         //try {
             $table = 'users';
-            $strSql = "SELECT * FROM $table WHERE user ='$user' AND password = '$password'";
+            $strSql = "SELECT u.*, a.name 
+                    FROM $table AS u
+                    INNER JOIN charge AS c
+                    ON u.charge_id = c.id
+                    INNER JOIN area AS a
+                    ON c.area_id = a.id
+                    WHERE u.user ='$user' AND u.password = '$password'";
             return $this->pdo->select($strSql);
         //} catch (PDOException $e) {
             //die($e->getMessage());
