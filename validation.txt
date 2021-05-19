@@ -43,3 +43,5 @@
                 die($e->getMessage());
             }
         }*/
+
+        .trim()

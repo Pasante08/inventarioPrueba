@@ -24,18 +24,21 @@
         public function listArchive()
         {
           if (isset($_REQUEST['id'])) {
-            $id = $_REQUEST['id'];
-            if($id != 'Sistemas')
-            {
+              $id = $_REQUEST['id'];
               $files = new File;
               $files = $files->getAll($id);
               require 'views/listArchive.php';
-            }else{
+          }
+        }
+
+        public function listArchiveAdmin()
+        {
+          if (isset($_REQUEST['id'])) {
+            $id = $_REQUEST['id'];
               $files = new File;
               $files = $files->getAll($id);
               require 'views/layout.php';
-              require 'views/listArchive.php';
-            }
+              require 'views/listArchiveAdmin.php';
           }
         }
 

@@ -10,11 +10,6 @@
     <link rel="shortcut icon" type="image/png" href="./assets/img/Logo_peque_ferreteria.fw.png" />
 </head>
 <body>
-    <nav>
-        <ul>
-            <li class="rightli"><a href="?controller=User&method=close">Cerrar sesión</a></li>
-        </ul>
-    </nav>
     <div>
         <h2>Archivos <?php echo $id; ?></h2>
     </div>
