@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-05-2021 a las 06:00:55
+-- Tiempo de generación: 12-05-2021 a las 21:40:50
 -- Versión del servidor: 10.4.18-MariaDB
--- Versión de PHP: 8.0.5
+-- Versión de PHP: 7.3.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -59,23 +59,6 @@ CREATE TABLE `charge` (
   `name` varchar(30) NOT NULL,
   `area_id` int(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `charge`
---
-
-INSERT INTO `charge` (`id`, `name`, `area_id`) VALUES
-(1, 'Coordinador tesorería', 8),
-(2, 'Coordinador JR', 1),
-(3, 'Asistente cartera', 2),
-(4, 'Tesorería SR', 8),
-(5, 'Asesor mostrador ', 9),
-(6, 'Asistente JR', 1),
-(7, 'Asesor comercial ', 5),
-(8, 'Coordinador documental ', 3),
-(9, 'Supervisor de ventas ', 7),
-(10, 'Almacenista JR', 6),
-(11, 'Asistente JR', 4);
 
 -- --------------------------------------------------------
 
@@ -235,13 +218,13 @@ ALTER TABLE `area`
 -- AUTO_INCREMENT de la tabla `charge`
 --
 ALTER TABLE `charge`
-  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `equipo`
 --
 ALTER TABLE `equipo`
-  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `file`
@@ -259,7 +242,7 @@ ALTER TABLE `sede`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `workstation`

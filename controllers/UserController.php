@@ -25,9 +25,17 @@
         {
           if (isset($_REQUEST['id'])) {
             $id = $_REQUEST['id'];
-            $files = new File;
-            $files = $files->getAll($id);
-            require 'views/listArchive.php';
+            if($id != 'Sistemas')
+            {
+              $files = new File;
+              $files = $files->getAll($id);
+              require 'views/listArchive.php';
+            }else{
+              $files = new File;
+              $files = $files->getAll($id);
+              require 'views/layout.php';
+              require 'views/listArchive.php';
+            }
           }
         }
 
