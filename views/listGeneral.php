@@ -30,7 +30,7 @@
                                 <td><?php echo $list->user ?></td>
                                 <td><?php echo $list->name ?></td>
                                 <td><?php echo $list->charge ?></td>
-                                <td><a href="?controller=User&method=edit&id=<?php echo $user->id; ?>" class="btn btn-edit">Editar</a>
+                                <td><a href="?controller=User&method=edit&id=<?php echo $list->id; ?>" class="btn btn-edit">Editar</a>
                                     <a href="?controller=User&method=delete&id=<?php echo $user->id; ?>" class="btn btn-delete" onclick="return confirm('Esta seguro de eliminar ?')">Eliminar</a></td>
                             </tr>
                         <?php endforeach ?>

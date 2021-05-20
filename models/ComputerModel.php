@@ -48,7 +48,7 @@ class Computer
     {
         try {
             $this->pdo->insert("equipo", $data);
-        } catch (\Throwable $th) {
+        } catch (PDOException $e) {
             die($e->getMessage());
         }
     }

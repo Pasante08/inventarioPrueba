@@ -15,8 +15,9 @@
 
         public function Index()
         {
+            $equipos = $this->computerModel->getAll();
             require 'views/layout.php';
-            require 'views/index.php';
+            require 'views/equipo/listEquipo.php';
         }
 
         public function newEquipo()
@@ -50,6 +51,8 @@
               $workstation = new Workstation;
               $users = $users->getAll();
               $workstation = $workstation->getAll();
+              require 'views/layout.php';
+              require 'views/equipo/editEquipo.php';
             }else{
               echo "El usuario no existe";
             }

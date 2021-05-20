@@ -38,6 +38,17 @@ class User{
         }
     }
 
+    public function getById($id)
+    {
+        try {
+            $strSql = "SELECT * FROM users WHERE id=:id";
+            $arrayData = ['id' => $id];
+            return $this->pdo->select($strSql, $arrayData);
+        } catch (PDOException $e) {
+            die($e->getMessage());
+        }
+    }
+
     public function list()
     {
         try {

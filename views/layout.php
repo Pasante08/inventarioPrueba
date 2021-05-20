@@ -18,10 +18,11 @@
                       <a href="?controller=Computer&method=newEquipo">Nuevo Equipo</a>
                       <a href="?controller=User&method=listGeneral">Usuarios bogotá</a>
                       <a href="?controller=File&method=new">nuevo archivo</a>
-                      <a href="?controller=User&method=listArchive&id=Sistemas">lista archivo</a>
+                      <a href="?controller=User&method=listArchiveAdmin&id=Sistemas">lista archivo</a>
                       <a id="BtnCargo">Nuevo cargo</a>
                       <a id="BtnSede">Nueva sede</a>
                       <a id="BtnArea">Nueva area</a>
+                      <a href="?controller=Computer">Lista Equipos</a>
                     </ul>
                 </li>
                 <li><a href="?controller=User&method=listArchiveAdmin&id=Cartera">Cartera</a></li>
@@ -38,41 +39,80 @@
   	</nav>
 
     <!-- Ventana modal Cargo -->
-    <div id="ModalCargo" class="modal">
+<div id="ModalCargo" class="modal">
 
-  <!-- Modal content -->
-  <div class="modal-content">
+<!-- Modal content -->
+<div class="modal-content">
+  <div class="modal-header">
+    <span class="close">&times;</span>
+    <h2>Nuevo Cargo</h2>
+  </div>
+  <div class="modal-body">
+    <form class="" action="?controller=Charge&method=save" method="post">
+      <label for="name">Cargo</label>
+      <input type="text" name="name" id="name" value="">
+      <label for="area_id">Area</label>
+      <select class="" name="area_id" id="area_id">
+        <option value="">Seleccione..</option>
+      </select>
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+  <!--<div class="modal-footer">
+  </div>-->
+</div>
+</div>
+
+    <!-- Ventana modal Cargo -->
+    <div id="ModalSede" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
     <div class="modal-header">
       <span class="close">&times;</span>
-      <h2>Nuevo Cargo</h2>
+      <h2>Nueva sede</h2>
     </div>
     <div class="modal-body">
-      <form class="" action="?controller=Charge&method=save" method="post">
-        <label for="name">Cargo</label>
+      <form class="" action="?controller=Sede&method=save" method="POST">
+        <label for="name">Sede</label>
         <input type="text" name="name" id="name" value="">
-        <label for="area_id">Area</label>
-        <select class="" name="area_id" id="area_id">
-          <option value="">Seleccione..</option>
-        </select>
         <button type="submit">Enviar</button>
       </form>
     </div>
     <!--<div class="modal-footer">
     </div>-->
-  </div>
+    </div>
+    </div>
+
+        <!-- Ventana modal Cargo -->
+        <div id="myModalSede" class="modal">
+
+<!-- Modal content -->
+<div class="modal-content">
+<div class="modal-header">
+  <span class="close">&times;</span>
+  <h2>Nueva sede</h2>
 </div>
-<div class="modal" id="ModalSede">
+<div class="modal-body">
+  <form class="" action="?controller=Sede&method=save" method="POST">
+    <label for="name">Sede</label>
+    <input type="text" name="name" id="name" value="">
+    <button type="submit">Enviar</button>
+  </form>
+</div>
+<!--<div class="modal-footer">
+</div>-->
+</div>
 </div>
 <script>
 
 
 // Get the button that opens the modal
 var btn = document.getElementById("BtnCargo");
-btn = document.getElementById("BtnSede");
-console.log(btn);
+
 // Get the modal
 var modal = document.getElementById("ModalCargo");
-modal = document.getElementById("ModalSede");
+
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 

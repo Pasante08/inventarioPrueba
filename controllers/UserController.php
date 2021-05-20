@@ -17,8 +17,9 @@
 
         public function Index()
         {
+            $users = $this->userModel->getAll();
             require 'views/layout.php';
-            require 'views/index.php';
+            require 'views/users/listUser.php';
         }
 
         public function listArchive()
@@ -27,7 +28,7 @@
               $id = $_REQUEST['id'];
               $files = new File;
               $files = $files->getAll($id);
-              require 'views/listArchive.php';
+              require 'views/file/listArchive.php';
           }
         }
 
@@ -38,7 +39,7 @@
               $files = new File;
               $files = $files->getAll($id);
               require 'views/layout.php';
-              require 'views/listArchiveAdmin.php';
+              require 'views/file/listArchiveAdmin.php';
           }
         }
 
@@ -49,7 +50,7 @@
               $areas = new Area;
               $areas = $areas->getAll();
               require 'views/layout.php';
-              require 'views/newUser.php';
+              require 'views/users/newUser.php';
         }
 
         public function chargesAreas()
@@ -70,6 +71,7 @@
               if (isset($_POST['name'])) {
                 unset($_POST['areasList']);
                 $this->userModel->newUser($_POST);
+                header('Location: ?controller=user');
               }
             } catch (Exception $e) {
               die($e->getMessage());
@@ -79,9 +81,7 @@
         public function listGeneral()
         {
           $list = $this->userModel->list();
-          /*print_r($list);
-          die();*/
-          require 'views/listUser.php';
+          require 'views/listGeneral.php';
         }
 
         public function edit()
@@ -89,14 +89,14 @@
           try {
             if (isset($_REQUEST['id'])) {
               $id = $_REQUEST['id'];
-              $user = $this->userModel->getById($id);
+              $users = $this->userModel->getById($id);
               $sedes = new Sede;
               $charges = new Charge;
               $sedes = $sedes->getAll();
               $charges = $charges->getAll();
-              require 'views/edit.php';
-            }
-            else{
+              require 'views/layout.php';
+              require 'views/users/editUser.php';
+            }else{
               echo "El usuario no existe";
             }
           } catch (Exception $e) {
@@ -108,8 +108,9 @@
         public function update()
         {
           try {
-            if (isset($_POST)) {
+            if (isset($_POST)) {          
               $this->userModel->editUser($_POST);
+              header('Location: ?controller=user');
             }else{
               echo "Error, accion no permitida";
             }
@@ -121,19 +122,19 @@
 
         public function delete()
         {
+
           $this->userModel->deleteUser($_REQUEST);
+          header('Location: ?controller=user');
         }
 
         public function ctrIngreso()
         {
             if (isset($_POST['user'])) {
-                $user = $_POST['user'];
+                $user = trim($_POST['user']);
                 $password = $_POST['password'];
                 $res = $this->userModel->login($user, $password);
-                /*print_r($res);
-                die();*/
                 if ($res != null) {
-                    if ($res[0]->user == $_POST['user'] && $res[0]->password == $_POST['password']) {
+                    if ($res[0]->user == $user && $res[0]->password == $password) {
                         $_SESSION["validateLogin"] = "correct";
                         echo "<script>
                         if(window.history.replaceState)
