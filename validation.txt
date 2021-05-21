@@ -45,3 +45,4 @@
         }*/
 
         .trim()
+        Sacar imagen en porcentaje 
