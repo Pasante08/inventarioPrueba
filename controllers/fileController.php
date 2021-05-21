@@ -22,7 +22,7 @@
         {
             $areas = new Area;
             $areas = $areas->getAll();
-            require 'views/newDoc.php';
+            require 'views/file/newDoc.php';
         }
 
         public function save()

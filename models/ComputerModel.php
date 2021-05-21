@@ -43,6 +43,16 @@ class Computer
         }
     }
 
+    public function validateIP($ip)
+    {
+      try {
+        $strSql = "SELECT * FROM equipo WHERE ip='$ip'";
+        return $this->pdo->select($strSql);
+      } catch (PDOException $e) {
+        die($e->getMessage());
+      }
+    }
+
     //Insertar un nuevo registro en la DB
     public function newEquipo($data)
     {

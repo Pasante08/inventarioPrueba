@@ -22,6 +22,8 @@
                       <a id="BtnCargo">Nuevo cargo</a>
                       <a id="BtnSede">Nueva sede</a>
                       <a id="BtnArea">Nueva area</a>
+                      <a id="BtnFile">Nuevo archivo</a>
+                      <a id="BtnET">Nueva E.T</a>
                       <a href="?controller=Computer">Lista Equipos</a>
                     </ul>
                 </li>
@@ -63,7 +65,7 @@
 </div>
 </div>
 
-    <!-- Ventana modal Cargo -->
+    <!-- Ventana modal Sede -->
     <div id="ModalSede" class="modal">
 
     <!-- Modal content -->
@@ -84,18 +86,18 @@
     </div>
     </div>
 
-        <!-- Ventana modal Cargo -->
-        <div id="myModalSede" class="modal">
+        <!-- Ventana modal Area -->
+        <div id="ModalArea" class="modal">
 
 <!-- Modal content -->
 <div class="modal-content">
 <div class="modal-header">
   <span class="close">&times;</span>
-  <h2>Nueva sede</h2>
+  <h2>Nueva Area</h2>
 </div>
 <div class="modal-body">
-  <form class="" action="?controller=Sede&method=save" method="POST">
-    <label for="name">Sede</label>
+  <form class="" action="?controller=area&method=save" method="POST">
+    <label for="name">Area</label>
     <input type="text" name="name" id="name" value="">
     <button type="submit">Enviar</button>
   </form>
@@ -104,39 +106,143 @@
 </div>-->
 </div>
 </div>
+
+        <!-- Ventana modal Archivo -->
+        <div id="ModalFile" class="modal">
+
+<!-- Modal content -->
+<div class="modal-content">
+<div class="modal-header">
+  <span class="close">&times;</span>
+  <h2>Nuevo Archivo</h2>
+</div>
+<div class="modal-body">
+  <form class="" action="?controller=File&method=save" method="POST" enctype="multipart/form-data">    
+    <input type="file" name="file" id="file">
+    <label for="area_id">Area</label>
+    <select name="area_id" id="area_id">
+            <option>Seleccione...</option>
+            <?php
+                foreach ($area as $areas) {
+                    echo '<option value="'.$areas->id.'">'.$areas->name.'</option>';
+                }
+            ?>
+        </select>
+    <button type="submit">Cargar</button>
+  </form>
+</div>
+<!--<div class="modal-footer">
+</div>-->
+</div>
+</div>
+
+        <!-- Ventana modal Estacion de trabajo -->
+        <div id="ModalET" class="modal">
+
+<!-- Modal content -->
+<div class="modal-content">
+<div class="modal-header">
+  <span class="close">&times;</span>
+  <h2>Nueva Estacion de trabajo</h2>
+</div>
+<div class="modal-body">
+  <form class="" action="?controller=&method=save" method="POST">    
+    <label for="name">Estacion de trabajo</label>
+    <input type="text" name="name" id="name" value="">
+    <button type="submit">Enviar</button>
+  </form>
+</div>
+<!--<div class="modal-footer">
+</div>-->
+</div>
+</div>
+
 <script>
-
-
-// Get the button that opens the modal
+  //Botones ventanas
 var btn = document.getElementById("BtnCargo");
-
-// Get the modal
+var btnSede = document.getElementById("BtnSede");
+var btnArea = document.getElementById("BtnArea");
+var btnFile = document.getElementById("BtnFile");
+var btnET = document.getElementById("BtnET");
+// Get the modal 
 var modal = document.getElementById("ModalCargo");
+var modalSede = document.getElementById("ModalSede");
+var modalArea = document.getElementById("ModalArea");
+var modalFile = document.getElementById("ModalFile");
+var modalET = document.getElementById("ModalET");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
+var spanSede = document.getElementsByClassName("close")[1];
+var spanArea = document.getElementsByClassName("close")[2];
+var spanFile = document.getElementsByClassName("close")[3];
+var spanET = document.getElementsByClassName("close")[4];
 
-// When the user clicks the button, open the modal
+// modal visible
 btn.onclick = function() {
-modal.style.display = "block";
-$(document).ready(function(){
-  recargarLista();
-})
+    modal.style.display = "block";
+    $(document).ready(function(){
+    recargarLista();
+    })
+}
+btnSede.onclick = function() {
+modalSede.style.display = "block";
+}
+btnArea.onclick = function() {
+  modalArea.style.display = "block";
+}
+btnFile.onclick = function() {
+  modalFile.style.display = "block";
+  /*$(document).ready(function(){
+    recargarLista();
+  })*/
+}
+btnET.onclick = function() {
+  modalET.style.display = "block";
 }
 
-// When the user clicks on <span> (x), close the modal
+// Cerrar ventana X
 span.onclick = function() {
 modal.style.display = "none";
+}
+spanSede.onclick = function() {
+modalSede.style.display = "none";
+}
+spanArea.onclick = function() {
+  modalArea.style.display = "none";
+}
+spanFile.onclick = function() {
+  modalFile.style.display = "none";
+}
+spanET.onclick = function() {
+  modalET.style.display = "none";
 }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-if (event.target == modal) {
+  switch(event.target){
+    case modal:
+      modal.style.display = "none";    
+      break;
+    case modalSede:
+      modalSede.style.display = "none";
+      break;
+    case modalArea:
+      modalArea.style.display = "none";
+      break;
+    case modalFile:
+      modalFile.style.display = "none";
+      break;
+    case modalET:
+      modalET.style.display = "none";
+      break;
+  }
+/*if (event.target == modal) {
   modal.style.display = "none";
-}
+}*/
 }
 
-function recargarLista(){
+/*function recargarLista(){
 $.ajax({
   type:"POST",
   url:"?controller=charge&method=newCharge",
@@ -145,6 +251,10 @@ $.ajax({
   }
 });
 }
+/*
+$("#btnCargo").onclick = function (){
+  $("#modalCargo").modal('show')
+};*/
 
 </script>
   </body>

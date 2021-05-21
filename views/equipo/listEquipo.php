@@ -4,7 +4,6 @@
     </div>
         <main class="container">
             <div class="col-sm-12">
-                <a href="?controller=Computer&method=index" class="btn btn-return">Volver</a>
                 <table>
                     <thead>
                         <th>ID</th>

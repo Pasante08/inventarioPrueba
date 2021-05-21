@@ -27,7 +27,7 @@
             $workstation = new Workstation;
             $workstation = $workstation->getAll();
             require 'views/layout.php';
-            require 'views/newEquipo.php';
+            require 'views/equipo/newEquipo.php';
         }
 
         public function save()
@@ -65,6 +65,7 @@
         {
           if (isset($_POST)) {
             $this->computerModel->editEquipo($_POST);
+            header('Location: ?controller=computer');
           }else {
             echo "Error, acciòn no permitida";
           }
@@ -73,5 +74,6 @@
         public function delete()
         {
             $this->computerModel->deleteEquipo($_REQUEST);
+            header('Location: ?controller=computer');
         }
     }

@@ -61,7 +61,7 @@
                         <div class="group">
                             <label for="areasList">Area</label>
                             <select name="areasList" id="areasList" class="input-form">
-                                    <option value="0">Seleccione...</option>
+                                    <option>Seleccione...</option>
                                     <?php
                                         foreach ($areas as $areas) {
                                             echo '<option value="'.$areas->id.'">'.$areas->name.'</option>';
