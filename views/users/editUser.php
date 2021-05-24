@@ -1,3 +1,5 @@
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	crossorigin="anonymous"></script>
 <link rel="stylesheet" type="text/css" href="css/StyleForm.css">
 <section>
         <h1>Editar usuario</h1>
@@ -37,27 +39,12 @@
                         <input type="text" class="input-form" id="ext" name="ext" value="<?php echo $users[0]->ext; ?>">
                     </div>
                     <div class="group">
-                        <label for="charge_id">Cargo</label>
-                        <select name="charge_id" id="charge_id" class="input-form">
-                            <option>Seleccione...</option>
-                            <?php
-                                foreach ($charges as $charges) {
-                                    if ($charges->id == $users[0]->charge_id) {
-                                        echo '<option selected value="'.$charges->id.'">'.$charges->name.'</option>';
-                                    }else {
-                                        echo '<option value="'.$charges->id.'">'.$charges->name.'</option>';
-                                    }
-                                }
-                            ?>
-                        </select>
-                    </div>
-                    <div class="group">
                         <label for="sede_id">Sede</label>
                         <select name="sede_id" id="sede_id" class="input-form">
                                 <option>Seleccione...</option>
                                 <?php
                                     foreach ($sedes as $sedes) {
-                                        if ($sedes->id == $user[0]->sede_id) {
+                                        if ($sedes->id == $users[0]->sede_id) {
                                             echo '<option selected value="'.$sedes->id.'">'.$sedes->name.'</option>';
                                         }else {
                                             echo '<option value="'.$sedes->id.'">'.$sedes->name.'</option>';
@@ -67,6 +54,32 @@
                         </select>
                     </div>
                 </div>
+                <div class="form-row">
+                <div class="group">
+                    <label for="area_id">Area</label>
+                    <select class="area_id" name="area_id">
+                    <?php
+                        foreach ($charges as $charges) {
+                            if($charges->id == $users[0]->charge_id){
+                                foreach ($areas as $areas) {
+                                    if($charges->area_id == $areas->id){
+                                        echo '<option selected value="'.$areas->id.'">'.$areas->name.'</option>';
+                                    }else{
+                                        echo '<option value="'.$areas->id.'">'.$areas->name.'</option>';
+                                    }
+                                }
+                            }
+                        }
+                      ?>
+                    </select>
+                  </div>
+                <div class="group">
+                      <label for="charge_id">Cargo</label>
+                      <select name="charge_id" id="charge_id" class="input-form">
+                      
+                      </select>
+                  </div>
+                </div>
                 <hr>
                 <div class="form-row">
                     <a href="?controller=User" class="btn btn-return">Cancelar</a>
@@ -75,3 +88,24 @@
             </form>
         </div>
     </div>
+    <script>
+        $(document).ready(function(){
+        $('#area_id').val(1);
+        listaCargos();
+
+        $('#area_id').change(function(){
+            listaCargos();
+        });
+    })
+
+    function listaCargos(){
+        $.ajax({
+            type:"POST",
+            url:"?controller=User&method=chargeArea",
+            data:"area=" + $('#area_id').val(),
+            success:function(s){
+                $('#charge_id').html(s);
+            }
+        });
+    }
+    </script>
