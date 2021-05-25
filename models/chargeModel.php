@@ -34,6 +34,22 @@
         }
       }
 
+      public function getAllExp($id, $idArea)
+      {
+        try {
+          $strSql = "SELECT *
+                FROM charge
+                WHERE id <>:id
+                AND area_id =".$idArea."";
+          $arrayData = ['id' => $id];
+          /*print_r($arrayData);
+          die();*/
+          return $this->pdo->select($strSql, $arrayData);
+        } catch (PDOException $e) {
+          die($e->getMessage());
+        }
+      }
+
       public function listCharges($id)
       {
         try {

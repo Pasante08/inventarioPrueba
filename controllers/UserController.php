@@ -53,20 +53,6 @@
               require 'views/users/newUser.php';
         }
 
-        /*public function chargeArea()
-        {
-          if (isset($_POST['area'])) {
-            $id = $_POST['area'];
-            print($id);
-            die();
-            $charges = new Charge;
-            $charges = $charges->listCharges($id);
-            foreach ($charges as $charge) {
-              echo '<option value='.$charge->id.'>'.$charge->name.'</option>';
-            }
-          }
-        }*/
-
         public function chargesAreas()
         {
           if (isset($_POST['area'])) {
@@ -104,29 +90,19 @@
             if (isset($_REQUEST['id'])) {
               $id = $_REQUEST['id'];
               $users = $this->userModel->getById($id);
-              /*print_r($users);
-              die();*/
+              $charge_id = $users[0]->charge_id;
               $sedes = new Sede;
-              $charges = new Charge;
-              $areas = new Area;
+              $char = new Charge;
+              $ar = new Area;
               $sedes = $sedes->getAll();
-              $sdes1 = getAll();
-              $charges = $charges->getAll($userChargeId);
-              $charges1 =
-              $areas = $areas->getAll();
-              /*foreach ($charges as $charges) {
-                if($charges->id == $users[0]->charge_id){
-                    foreach ($areas as $areas) {
-                        if($charges->area_id == $areas->id){
-                            echo $areas->name;
-                            die();
-                        }else{
-                            echo "Error";
-                            die();
-                        }
-                    }
-                }*/
-              /*print_r($areas);
+              $charge = $char->getById($charge_id);
+              $idC = $charge[0]->id;
+              $area_id = $charge[0]->area_id;
+              $charges = $char->getAllExp($idC, $area_id);
+              $are = $ar->getById($area_id);
+              $idA = $are[0]->id;
+              $areas = $ar->getAllExp($idA);
+              /*print_r($area);
               die();*/
               require 'views/layout.php';
               require 'views/users/editUser.php';
@@ -143,6 +119,8 @@
         {
           try {
             if (isset($_POST)) {
+              print_r($_POST);
+              die();
               $this->userModel->editUser($_POST);
               header('Location: ?controller=user');
             }else{

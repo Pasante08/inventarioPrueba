@@ -43,7 +43,6 @@
                         <select name="sede_id" id="sede_id" class="input-form">
                                 <option>Seleccione...</option>
                                 <?php
-																echo
                                     foreach ($sedes as $sedes) {
                                         if ($sedes->id == $users[0]->sede_id) {
                                             echo '<option selected value="'.$sedes->id.'">'.$sedes->name.'</option>';
@@ -57,20 +56,12 @@
                 </div>
                 <div class="form-row">
                 <div class="group">
-                    <label for="area_id">Area</label>
-                    <select class="area_id" name="area_id">
+                    <label for="areas">Area</label>
+                    <select id="areas" class="input-form" name="areas">
                     <?php
-										$charge = $charges;
-                        foreach ($charge as $charge1) {
-                            if($charge1->id == $users[0]->charge_id){
-                                foreach ($areas as $areas) {
-                                    if($charge1->area_id == $areas->id){
-                                        echo '<option selected value="'.$areas->id.'">'.$areas->name.'</option>';
-                                    }else{
-                                        echo '<option value="'.$areas->id.'">'.$areas->name.'</option>';
-                                    }
-                                }
-                            }
+                        echo '<option selected value="'.$are[0]->id.'">'.$are[0]->name.'</option>';
+                        foreach ($areas as $ar) {
+                            echo '<option value="'.$ar->id.'">'.$ar->name.'</option>';
                         }
                       ?>
                     </select>
@@ -79,15 +70,11 @@
                       <label for="charge_id">Cargo</label>
                       <select name="charge_id" id="charge_id" class="input-form">
                       <?php
-
-											foreach ($charges as $char) {
-													if($char->id == $users[0]->charge_id){
-															echo '<option selected value="'.$char->id.'">'.$char->name.'</option>';
-														}else{
-															echo '<option value="'.$char->id.'">'.$char->name.'</option>';
-														}
-													}
-											 ?>
+						echo '<option selected value="'.$charge[0]->id.'">'.$charge[0]->name.'</option>';
+                        foreach ($charges as $char) {
+                                echo '<option value="'.$char->id.'">'.$char->name.'</option>';
+                        }
+					    ?>
                       </select>
                   </div>
                 </div>
@@ -120,3 +107,25 @@
         });
     }*/
     </script>
+    <script type="text/javascript">
+    /*$(document).ready(function(){
+        $('#areasList').val(1);
+        recargarLista();
+
+        $('#areasList').change(function(){
+            recargarLista();
+        });
+    })
+</script>
+<!--<script type="text/javascript">
+    function recargarLista(){
+        $.ajax({
+            type:"POST",
+            url:"?controller=user&method=chargesAreas",
+            data:"area=" + $('#areasList').val(),
+            success:function(r){
+                $('#charge_id').html(r);
+            }
+        });
+    }
+</script>-->

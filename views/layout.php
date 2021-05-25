@@ -17,7 +17,6 @@
                       <a href="?controller=User&method=newUser">Nuevo usuario</a>
                       <a href="?controller=Computer&method=newEquipo">Nuevo Equipo</a>
                       <a href="?controller=User&method=listGeneral">Usuarios bogotá</a>
-                      <a href="?controller=File&method=new">nuevo archivo</a>
                       <a href="?controller=User&method=listArchiveAdmin&id=Sistemas">lista archivo</a>
                       <a id="BtnCargo">Nuevo cargo</a>
                       <a id="BtnSede">Nueva sede</a>
@@ -41,7 +40,7 @@
   	</nav>
 
     <!-- Ventana modal Cargo -->
-<div id="ModalCargo" class="modal">
+    <div id="ModalCargo" class="modal">
 
 <!-- Modal content -->
 <div class="modal-content">
@@ -51,8 +50,23 @@
   </div>
   <div class="modal-body">
     <?php
-    include('views/modales/modalCargo.php');
+    //include('views/modales/modalCargo.php');
     ?>
+    <form class="" action="?controller=Charge&method=save" method="post">
+  <label for="name">Cargo</label>
+  <input type="text" name="name" id="name" value="">
+  <label for="area_id">Area</label>
+  <select class="" name="area_id" id="area_id">
+    <option value="">Seleccione..</option>
+    <?php
+    $area = $areas;
+        foreach ($area as $ar) {
+            echo '<option value="'.$ar->id.'">'.$ar->name.'</option>';
+        }
+    ?>
+  </select>
+  <button type="submit">Enviar</button>
+</form>
   </div>
 </div>
 </div>
@@ -67,11 +81,9 @@
       <h2>Nueva sede</h2>
     </div>
     <div class="modal-body">
-      <form class="" action="?controller=Sede&method=save" method="POST">
-        <label for="name">Sede</label>
-        <input type="text" name="name" id="name" value="">
-        <button type="submit">Enviar</button>
-      </form>
+    <?php
+      include('views/modales/modalSede.php');
+    ?>
     </div>
     <!--<div class="modal-footer">
     </div>-->
@@ -88,11 +100,9 @@
   <h2>Nueva Area</h2>
 </div>
 <div class="modal-body">
-  <form class="" action="?controller=area&method=save" method="POST">
-    <label for="name">Area</label>
-    <input type="text" name="name" id="name" value="">
-    <button type="submit">Enviar</button>
-  </form>
+<?php
+      include('views/modales/modalArea.php');
+    ?>
 </div>
 <!--<div class="modal-footer">
 </div>-->
@@ -109,15 +119,18 @@
   <h2>Nuevo Archivo</h2>
 </div>
 <div class="modal-body">
-  <form class="" action="?controller=File&method=save" method="POST" enctype="multipart/form-data">
+<?php
+      //include('views/modales/modalFile.php');
+    ?>
+    <form class="" action="?controller=File&method=save" method="POST" enctype="multipart/form-data">
     <input type="file" name="file" id="file">
     <label for="area_id">Area</label>
     <select name="area_id" id="area_id">
-            <option>Seleccione</option>
+            <option>Seleccione...</option>
             <?php
             $area = $areas;
-                foreach ($area as $ar) {
-                    echo '<option value="'.$ar->id.'">'.$ar->name.'</option>';
+                foreach ($area as $area) {
+                    echo '<option value="'.$area->id.'">'.$area->name.'</option>';
                 }
             ?>
         </select>
@@ -139,11 +152,9 @@
   <h2>Nueva Estacion de trabajo</h2>
 </div>
 <div class="modal-body">
-  <form class="" action="?controller=&method=save" method="POST">
-    <label for="name">Estacion de trabajo</label>
-    <input type="text" name="name" id="name" value="">
-    <button type="submit">Enviar</button>
-  </form>
+<?php
+      include('views/modales/modalET.php');
+    ?>
 </div>
 <!--<div class="modal-footer">
 </div>-->
@@ -186,9 +197,9 @@ btnArea.onclick = function() {
 }
 btnFile.onclick = function() {
   modalFile.style.display = "block";
-  /*$(document).ready(function(){
+  $(document).ready(function(){
     recargarLista();
-  })*/
+  })
 }
 btnET.onclick = function() {
   modalET.style.display = "block";
@@ -235,7 +246,7 @@ window.onclick = function(event) {
 }*/
 }
 
-/*function recargarLista(){
+function recargarLista(){
 $.ajax({
   type:"POST",
   url:"?controller=charge&method=newCharge",
@@ -244,10 +255,6 @@ $.ajax({
   }
 });
 }
-/*
-$("#btnCargo").onclick = function (){
-  $("#modalCargo").modal('show')
-};*/
 
 </script>
   </body>
