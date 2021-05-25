@@ -43,6 +43,7 @@
                         <select name="sede_id" id="sede_id" class="input-form">
                                 <option>Seleccione...</option>
                                 <?php
+																echo
                                     foreach ($sedes as $sedes) {
                                         if ($sedes->id == $users[0]->sede_id) {
                                             echo '<option selected value="'.$sedes->id.'">'.$sedes->name.'</option>';
@@ -59,10 +60,11 @@
                     <label for="area_id">Area</label>
                     <select class="area_id" name="area_id">
                     <?php
-                        foreach ($charges as $charges) {
-                            if($charges->id == $users[0]->charge_id){
+										$charge = $charges;
+                        foreach ($charge as $charge1) {
+                            if($charge1->id == $users[0]->charge_id){
                                 foreach ($areas as $areas) {
-                                    if($charges->area_id == $areas->id){
+                                    if($charge1->area_id == $areas->id){
                                         echo '<option selected value="'.$areas->id.'">'.$areas->name.'</option>';
                                     }else{
                                         echo '<option value="'.$areas->id.'">'.$areas->name.'</option>';
@@ -76,7 +78,16 @@
                 <div class="group">
                       <label for="charge_id">Cargo</label>
                       <select name="charge_id" id="charge_id" class="input-form">
-                      
+                      <?php
+
+											foreach ($charges as $char) {
+													if($char->id == $users[0]->charge_id){
+															echo '<option selected value="'.$char->id.'">'.$char->name.'</option>';
+														}else{
+															echo '<option value="'.$char->id.'">'.$char->name.'</option>';
+														}
+													}
+											 ?>
                       </select>
                   </div>
                 </div>
@@ -89,7 +100,7 @@
         </div>
     </div>
     <script>
-        $(document).ready(function(){
+      /*  $(document).ready(function(){
         $('#area_id').val(1);
         listaCargos();
 
@@ -107,5 +118,5 @@
                 $('#charge_id').html(s);
             }
         });
-    }
+    }*/
     </script>

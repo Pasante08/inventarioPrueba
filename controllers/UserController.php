@@ -53,7 +53,7 @@
               require 'views/users/newUser.php';
         }
 
-        public function chargeArea()
+        /*public function chargeArea()
         {
           if (isset($_POST['area'])) {
             $id = $_POST['area'];
@@ -65,7 +65,7 @@
               echo '<option value='.$charge->id.'>'.$charge->name.'</option>';
             }
           }
-        }
+        }*/
 
         public function chargesAreas()
         {
@@ -110,7 +110,9 @@
               $charges = new Charge;
               $areas = new Area;
               $sedes = $sedes->getAll();
-              $charges = $charges->getAll();
+              $sdes1 = getAll();
+              $charges = $charges->getAll($userChargeId);
+              $charges1 =
               $areas = $areas->getAll();
               /*foreach ($charges as $charges) {
                 if($charges->id == $users[0]->charge_id){

@@ -50,18 +50,10 @@
     <h2>Nuevo Cargo</h2>
   </div>
   <div class="modal-body">
-    <form class="" action="?controller=Charge&method=save" method="post">
-      <label for="name">Cargo</label>
-      <input type="text" name="name" id="name" value="">
-      <label for="area_id">Area</label>
-      <select class="" name="area_id" id="area_id">
-        <option value="">Seleccione..</option>
-      </select>
-      <button type="submit">Enviar</button>
-    </form>
+    <?php
+    include('views/modales/modalCargo.php');
+    ?>
   </div>
-  <!--<div class="modal-footer">
-  </div>-->
 </div>
 </div>
 
@@ -117,14 +109,15 @@
   <h2>Nuevo Archivo</h2>
 </div>
 <div class="modal-body">
-  <form class="" action="?controller=File&method=save" method="POST" enctype="multipart/form-data">    
+  <form class="" action="?controller=File&method=save" method="POST" enctype="multipart/form-data">
     <input type="file" name="file" id="file">
     <label for="area_id">Area</label>
     <select name="area_id" id="area_id">
-            <option>Seleccione...</option>
+            <option>Seleccione</option>
             <?php
-                foreach ($area as $areas) {
-                    echo '<option value="'.$areas->id.'">'.$areas->name.'</option>';
+            $area = $areas;
+                foreach ($area as $ar) {
+                    echo '<option value="'.$ar->id.'">'.$ar->name.'</option>';
                 }
             ?>
         </select>
@@ -146,7 +139,7 @@
   <h2>Nueva Estacion de trabajo</h2>
 </div>
 <div class="modal-body">
-  <form class="" action="?controller=&method=save" method="POST">    
+  <form class="" action="?controller=&method=save" method="POST">
     <label for="name">Estacion de trabajo</label>
     <input type="text" name="name" id="name" value="">
     <button type="submit">Enviar</button>
@@ -164,7 +157,7 @@ var btnSede = document.getElementById("BtnSede");
 var btnArea = document.getElementById("BtnArea");
 var btnFile = document.getElementById("BtnFile");
 var btnET = document.getElementById("BtnET");
-// Get the modal 
+// Get the modal
 var modal = document.getElementById("ModalCargo");
 var modalSede = document.getElementById("ModalSede");
 var modalArea = document.getElementById("ModalArea");
@@ -222,7 +215,7 @@ spanET.onclick = function() {
 window.onclick = function(event) {
   switch(event.target){
     case modal:
-      modal.style.display = "none";    
+      modal.style.display = "none";
       break;
     case modalSede:
       modalSede.style.display = "none";

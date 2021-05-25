@@ -15,10 +15,10 @@
             }
         }
 
-        public function getAll()
+        public function getAll($a)
         {
             try{
-                $strSql = "SELECT * FROM sede";
+                $strSql = "SELECT * FROM sede where id = a";
                 return $this->pdo->select($strSql);
             }catch(PDOException $e){
                 die($e->getMessage());
