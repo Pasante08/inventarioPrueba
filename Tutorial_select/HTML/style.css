@@ -1,13 +1,18 @@
 * {
     font-family: "Open Sans", sans-serif;
     box-sizing: border-box;
+    /*padding: 10px;*/
 }
-
+/*---------------Formularios---------------*/
 .container {
-    width: 100%;
+    width: 50%;
     border-radius: 10px;
     padding: 20px;
-    background-color: #f2f2f2;    
+    background-color: #f2f2f2;
+    margin: 0 auto;
+    /*justify-content: center;  
+    align-items: center;*/
+    /*max-width: 600px;*/
 }
 
 input[type=text], select, textarea {
@@ -21,13 +26,13 @@ input[type=text], select, textarea {
   }
 
 input[type=submit] {
-    background-color: #04AA6D;
+    background-color: #bc0723;
     color: white;
     padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
+    border: 1px solid #000000;
+    border-radius: 5px;
     cursor: pointer;
-    float: right;
+    /*float: right;*/
 }
 
 .group {
@@ -39,7 +44,56 @@ input[type=submit] {
     display: flex;
 }
 
+/*---------------Tablas---------------*/
+
+table {
+    width: 80%;
+    background-color: #f2f2f2;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+thead th{
+    background-color: #bc0723;
+    border: 1px solid #000000;
+    padding: 8px;
+}
+
+tbody td{
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+td a {
+    color:#fff;
+    background-color: #6c757d;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    padding: 5px;
+    text-decoration: none;
+}
+
+/*---------------Menu---------------*/
+
+ul {
+    overflow: hidden;
+}
+
 @media screen and (max-width: 600px) {
+    * {
+        box-sizing: border-box;
+    }
+
+    /*---------------Formularios---------------*/
     .input[type=text], input[type=submit] {
       width: 100%;
       margin-top: 0;
@@ -51,6 +105,39 @@ input[type=submit] {
 
     .group {
         width: 100%;
-        /*margin: none;*/
+        margin: 0px;
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    /*---------------Tablas---------------*/
+
+    thead td {
+        display: block;
+    }
+
+    tbody td {
+        padding: 5px;
+    }
+
+    table {
+        width: 100%;
+        font-size: 10px;
+        /*box-sizing: border-box;*/
+    }
+
+    td a {
+        display: inline-block;
+        padding: 2px;
+        margin: 2px;
+    }
+  }
+
+@media screen and (max-width: 700px) {
+    /*---------------Formularios---------------*/
+    .container {
+        width: 100%;
     }
   }
