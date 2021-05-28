@@ -1,7 +1,7 @@
 * {
     font-family: "Open Sans", sans-serif;
     box-sizing: border-box;
-    /*padding: 10px;*/
+    margin: 0;
 }
 /*---------------Formularios---------------*/
 .container {
@@ -86,6 +86,14 @@ td a {
 
 ul {
     overflow: hidden;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #bc0723;
+}
+
+li {
+    float: left;
 }
 
 @media screen and (max-width: 600px) {
@@ -94,7 +102,7 @@ ul {
     }
 
     /*---------------Formularios---------------*/
-    .input[type=text], input[type=submit] {
+    .input[type=text] {
       width: 100%;
       margin-top: 0;
     }

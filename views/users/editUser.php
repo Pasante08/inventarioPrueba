@@ -68,14 +68,19 @@
                   </div>
                 <div class="group">
                       <label for="charge_id">Cargo</label>
-                      <select name="charge_id" id="charge_id" class="input-form">
+                    <!--  <select name="charge_id" id="charge_id" class="input-form">
                       <?php
-						echo '<option selected value="'.$charge[0]->id.'">'.$charge[0]->name.'</option>';
+						/*echo '<option selected value="'.$charge[0]->id.'">'.$charge[0]->name.'</option>';
                         foreach ($charges as $char) {
                                 echo '<option value="'.$char->id.'">'.$char->name.'</option>';
-                        }
+                        }*/
 					    ?>
-                      </select>
+						</select>-->
+											<select name="charge_id" id="charge_id" class="input-form">
+												<?php
+													echo '<option selected value="'.$charge[0]->id.'">'.$charge[0]->name.'</option>';
+												 ?>
+											</select>
                   </div>
                 </div>
                 <hr>
@@ -86,46 +91,28 @@
             </form>
         </div>
     </div>
-    <script>
-      /*  $(document).ready(function(){
-        $('#area_id').val(1);
-        listaCargos();
 
-        $('#area_id').change(function(){
-            listaCargos();
-        });
-    })
+<script type="text/javascript">
+   $(document).ready(function(){
+        /*$('#areas').val(1);
+				alert("Hola Mundo!");
+        recargarLista();*/
 
-    function listaCargos(){
-        $.ajax({
-            type:"POST",
-            url:"?controller=User&method=chargeArea",
-            data:"area=" + $('#area_id').val(),
-            success:function(s){
-                $('#charge_id').html(s);
-            }
-        });
-    }*/
-    </script>
-    <script type="text/javascript">
-    /*$(document).ready(function(){
-        $('#areasList').val(1);
-        recargarLista();
-
-        $('#areasList').change(function(){
+        $('#areas').change(function(){
+					alert("Hola Mundo2!");
             recargarLista();
         });
     })
 </script>
-<!--<script type="text/javascript">
+<script type="text/javascript">
     function recargarLista(){
         $.ajax({
             type:"POST",
             url:"?controller=user&method=chargesAreas",
-            data:"area=" + $('#areasList').val(),
+            data:"area=" + $('#areas').val(),
             success:function(r){
                 $('#charge_id').html(r);
             }
         });
     }
-</script>-->
+</script>
