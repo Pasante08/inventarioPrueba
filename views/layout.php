@@ -124,13 +124,13 @@
     ?>
     <form class="" action="?controller=File&method=save" method="POST" enctype="multipart/form-data">
     <input type="file" name="file" id="file">
-    <label for="area_id">Area</label>
+    <label for="area_id">Area <?php print_r($areas); ?></label>
     <select name="area_id" id="area_id">
             <option>Seleccione...</option>
             <?php
-            $area = $areas;
-                foreach ($area as $area) {
-                    echo '<option value="'.$area->id.'">'.$area->name.'</option>';
+            $are = $areas;
+                foreach ($are as $areas) {
+                    echo '<option value="'.$areas->id.'">'.$areas->name.'</option>';
                 }
             ?>
         </select>

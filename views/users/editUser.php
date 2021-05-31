@@ -94,12 +94,7 @@
 
 <script type="text/javascript">
    $(document).ready(function(){
-        /*$('#areas').val(1);
-				alert("Hola Mundo!");
-        recargarLista();*/
-
         $('#areas').change(function(){
-					alert("Hola Mundo2!");
             recargarLista();
         });
     })
