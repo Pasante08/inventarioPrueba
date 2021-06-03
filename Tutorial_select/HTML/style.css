@@ -96,6 +96,10 @@ li {
     float: left;
 }
 
+.icon{
+    display: none;
+}
+
 li a, .dropbtn {
     display: inline-block;
     color: white;
@@ -185,21 +189,6 @@ li.dropdown {
     }
 
     /*---------------menu---------------*/
-
-    /*ul {
-        /*display: inline-block;*/
-        /*width: 100%;
-    }*/
-
-    /*li a, .dropbtn {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 20px 18px;
-        /*padding: 12px 16px;
-        text-decoration: none;
-        width: 100%;
-    }*/
     
     li {
         float: none;
@@ -210,14 +199,35 @@ li.dropdown {
         display: block;
     }
 
+    .active {
+        display: inline-block;
+        color: white;
+        text-align: center;
+        padding: 20px 18px;
+    /*padding: 12px 16px;*/
+        text-decoration: none;
+    }
+
     li a, .dropbtn {
         width: 100%;
+        padding: 15px 14px;
+        text-decoration: none;
+        display: none;
+    }
+    .icon {
+        float: right;
+        display: block;
+        position: relative;
     }
 
     .dropdown:hover .dropdown-content {
         display: block;
         width: 100%;
     } 
+
+    .dropdown-content {
+        position: relative;
+    }
   }
 
 @media screen and (max-width: 700px) {
