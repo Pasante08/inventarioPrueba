@@ -10,16 +10,12 @@
     padding: 20px;
     background-color: #f2f2f2;
     margin: 0 auto;
-    /*justify-content: center;  
-    align-items: center;*/
-    /*max-width: 600px;*/
 }
 
 input[type=text], select, textarea {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
-    /*display: inline-block;*/
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
@@ -32,7 +28,6 @@ input[type=submit] {
     border: 1px solid #000000;
     border-radius: 5px;
     cursor: pointer;
-    /*float: right;*/
 }
 
 .group {
@@ -100,12 +95,19 @@ li {
     display: none;
 }
 
+.active {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 20px 18px;
+    text-decoration: none;
+}
+
 li a, .dropbtn {
     display: inline-block;
     color: white;
     text-align: center;
     padding: 20px 18px;
-    /*padding: 12px 16px;*/
     text-decoration: none;
 }
 
@@ -117,7 +119,6 @@ li.dropdown {
     display: none;
     position: absolute;
     background-color: blue;
-    /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
     z-index: 1;
 }
 
@@ -126,7 +127,6 @@ li.dropdown {
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-    /*text-align: left;*/
 }
 
 .dropdown-content A:hover {
@@ -178,8 +178,7 @@ li.dropdown {
 
     table {
         width: 100%;
-        font-size: 10px;
-        /*box-sizing: border-box;*/
+        font-size: 10px;        
     }
 
     td a {
@@ -189,44 +188,38 @@ li.dropdown {
     }
 
     /*---------------menu---------------*/
-    
+
+    .mytopNav.responsive {
+        position: relative;
+    }
+
+    .mytopNav.responsive .icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .mytopNav.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+
     li {
         float: none;
-        width: 100%;
     }
 
-    li.dropdown {
+    li .icon {
         display: block;
-    }
-
-    .active {
-        display: inline-block;
-        color: white;
-        text-align: center;
-        padding: 20px 18px;
-    /*padding: 12px 16px;*/
-        text-decoration: none;
+        float: right;
     }
 
     li a, .dropbtn {
-        width: 100%;
-        padding: 15px 14px;
-        text-decoration: none;
         display: none;
     }
-    .icon {
-        float: right;
-        display: block;
-        position: relative;
-    }
 
-    .dropdown:hover .dropdown-content {
+    .active {
         display: block;
-        width: 100%;
-    } 
-
-    .dropdown-content {
-        position: relative;
+        float: left;
     }
   }
 
