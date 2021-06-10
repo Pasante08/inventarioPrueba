@@ -204,6 +204,21 @@ li.dropdown {
         text-align: left;
     }
 
+    .dropdown-content:hover {
+        display: none;
+    }
+
+    .dropdown-content.submenu {
+        position: relative;
+        background-color: blueviolet;
+    }
+
+    .dropdown-content.submenuNone {
+
+        /*position: relative;*/
+        background-color: blue;
+    }
+
     li {
         float: none;
     }

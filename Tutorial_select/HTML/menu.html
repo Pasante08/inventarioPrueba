@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu</title>
     <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
@@ -39,41 +38,27 @@
                 x.className = "mytopNav";
             }
         }
-
-        /*function sistemas() {
-            if(window.innerWidth <= 600) {
-                var s = document.getElementById("submenu");
-            if(s.className === "dropdown-content") {
-                
-                if(s.className === "submenu") {
-                    
-                } else {
-                    
-                    s.className += " submenu";
-                }
-                            }
-            } else {
-                alert("No es mayor");
-            }
-
-        }*/
-
         var a = document.getElementById("sistemas");
-        a.addEventListener("click", function () {
-            console.log("menu");
-            let submenu = document.getElementById("submenu").children;
-            for (let i = 0; i < submenu.length; i++) {
-                submenu[i].remove();
-                if (submenu.length == 0) {
-
-                    a.addEventListener('click', myFunction);
-
-                }
+        function lista(){
+            var ul = document.getElementById("submenu").childNodes;
+            for(let i=0; i< ul.length; i++){
+                ul[i].remove();
             }
+        }
+        a.addEventListener("click", function(e) {
+            var ul = document.getElementById("submenu").childNodes;
+            
+            setInterval({
+                lista 
+            }),1000);
 
-        });
+            if(ul.length == 0){
+                clearInterval();
+            }
+            
+               
+        })
     </script>
-
 </body>
 
 </html>

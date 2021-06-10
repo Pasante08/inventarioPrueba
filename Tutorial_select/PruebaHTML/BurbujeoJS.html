@@ -1,0 +1,116 @@
+<!--<!DOCTYPE html>
+
+<html><head><title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+
+<style type="text/css"> *{font-family:sans-serif;}
+
+div {margin:20px; padding:20px; background-color: yellow; border-style:solid;}</style>
+
+<script type="text/javascript">
+
+window.onload = function () {
+
+var elemsDiv = document.querySelectorAll('div');
+
+for (var i=0;i<elemsDiv.length;i++) {elemsDiv[i].addEventListener("click", decirHola);}
+
+}
+
+function decirHola(elEvento) {alert('Hola soy el '+this.className);
+elEvento.stopPropagation();}
+
+</script>
+
+</head>
+
+<body><h2>Cursos aprenderaprogramar.com</h2><h3>Ejemplos JavaScript</h3>
+
+<div class="externo"> Soy el div externo: 
+
+                <div class="intermedio"> Soy el div intermedio
+
+                               <div class="interno"> Soy el div interno</div>
+
+                </div>
+
+</div>
+
+</body></html>-->
+
+<!-- <!DOCTYPE html>
+
+<html><head><title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+
+<style type="text/css"> *{font-family:sans-serif;}
+
+div {margin:20px; padding:20px; background-color: yellow; border-style:solid;}</style>
+
+<script type="text/javascript">
+
+window.onload = function () {
+
+var elemsLink = document.querySelectorAll("div a");
+
+var elemsDiv = document.querySelectorAll('div');
+
+for (var i=0;i<elemsLink.length;i++) {
+
+elemsLink[i].addEventListener("click", decirHola);
+
+elemsDiv[i].addEventListener("click", decirHola);
+
+}
+
+}
+
+function decirHola(elEvento) {
+
+elEvento.preventDefault();
+
+alert('Hola soy el '+this.parentNode.className);
+
+elEvento.stopPropagation();
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<h2>Cursos aprenderaprogramar.com</h2><h3>Ejemplos JavaScript</h3>
+
+<div class="externo"> Soy el div externo: <a href="http://aprenderaprogramar.com"> Aquí un link </a>
+
+<div class="intermedio"> Soy el div intermedio <a href="http://aprenderaprogramar.es"> Aquí un link </a>
+
+<div class="interno"> Soy el div interno <a href="http://aprendeaprogramar.es"> Aquí un link </a> </div>
+
+</div>
+
+</div>
+
+</body></html> -->
+
+<!DOCTYPE html>
+
+<html><head><title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+
+<script type="text/javascript">
+
+function mostrarMensaje() {
+
+alert('Aham, lo que parecía un link en realidad lo que está haciendo es ejecutar una función javascript!');
+
+}
+
+</script>
+
+</head>
+
+<body><h2>Cursos aprenderaprogramar.com</h2><h3>Ejemplos JavaScript</h3>
+
+<a href="javascript:mostrarMensaje();"> Pulsa aquí por favor </a>
+
+</body></html>
