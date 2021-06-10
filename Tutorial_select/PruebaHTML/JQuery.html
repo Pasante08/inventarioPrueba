@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery</title>
+    <style type="text/css">
+        .submenu {
+            display: none;
+        }
+
+        .opacity {
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li class="subtitle">
+            <a href="#" class="action">Inicio</a>
+            <ul class="submenu">
+                <li>
+                    <a href="#">Inicio 1</a>
+                </li>
+                <li>
+                    <a href="#">Inicio 2</a>
+                </li>
+                <li>
+                    <a href="#">Inicio 3</a>
+                </li>
+            </ul>
+        </li>
+        <li class="subtitle">
+            <a href="#" class="action">Nosotros</a>
+            <ul class="submenu opacity">
+                <li>
+                    <a href="#">Nosotros 1</a>
+                </li>
+                <li>
+                    <a href="#">Nosotros 2</a>
+                </li>
+                <li>
+                    <a href="#">Nosotros 3</a>
+                </li>
+            </ul>
+
+        </li>
+        <li class="subtitle">
+            <a href="#" class="action">Contacto</a>
+            <ul class="submenu opacity">
+                <li>
+                    <a href="#">Contacto 1</a>
+                </li>
+                <li>
+                    <a href="#">Contacto 2</a>
+                </li>
+                <li>
+                    <a href="#">Contacto 3</a>
+                </li>
+            </ul>
+        </li>
+        <li class="subtitle">
+            <a href="#" class="action">Empresa</a>
+            <ul class="submenu opacity">
+                <li>
+                    <a href="#">Empresa 1</a>
+                </li>
+                <li>
+                    <a href="#">Empresa 2</a>
+                </li>
+                <li>
+                    <a href="#">Empresa 3</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <script>
+        $(".subtitle .action").click(function (event) {
+            var subtitle = $(this).parents(".subtitle");
+            var submenu = $(subtitle).find(".submenu");
+
+            $(".submenu").not($(submenu)).slideUp("slow").addClass("opacity");
+            $(".open").not($(subtitle)).removeClass("open");
+
+            $(subtitle).toggleClass("open");
+            $(submenu).slideToggle("slow").toggleClass("opacity");
+
+            return false;
+        });
+    </script>
+</body>
+
+</html>

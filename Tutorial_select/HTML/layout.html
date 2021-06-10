@@ -15,9 +15,9 @@
         <ul id="myNav" class="mytopNav">
             <li><a class="active">Bienvenido</a></li>
             <li><a href="javascript:void(0);" class="icon" onclick="myFunction()">M</a></li>
-            <li class="dropdown" id="subMenu">
-                <a href="#" class="dropbtn" id="sistemas">Sistemas</a>
-                <ul id="submenu" class="dropdown-content">
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Sistemas</a>
+                <ul class="dropdown-content opacity">
                     <a href="">Hola</a>
                     <a href="">Hola1</a>
                     <a href="">Hola2</a>
@@ -30,6 +30,7 @@
             <li class="rightli"><a href="">cerrar sesion</a></li>
         </ul>
     </nav>
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
     <script>
         function myFunction() {
             var x = document.getElementById("myNav");
@@ -39,39 +40,20 @@
                 x.className = "mytopNav";
             }
         }
+        
+        $(".dropdown .dropbtn").click(function (event) {
+            
+            var dropdown = $(this).parents(".dropdown");
+            var dropdownContent = $(dropdown).find(".dropdown-content");
 
-        /*function sistemas() {
-            if(window.innerWidth <= 600) {
-                var s = document.getElementById("submenu");
-            if(s.className === "dropdown-content") {
-                
-                if(s.className === "submenu") {
-                    
-                } else {
-                    
-                    s.className += " submenu";
-                }
-                            }
-            } else {
-                alert("No es mayor");
-            }
+            $(".dropdown-content").not($(dropdownContent)).slideUp("slow").addClass("opacity");
+            $(".open").not($(dropdown)).removeClass("open");
 
-        }*/
+            $(dropdown).toggleClass("open");
+            $(dropdownContent).slideToggle("slow").toggleClass("opacity");
 
-        var a = document.getElementById("sistemas");
-        a.addEventListener("click", function () {
-            console.log("menu");
-            let submenu = document.getElementById("submenu").children;
-            for (let i = 0; i < submenu.length; i++) {
-                submenu[i].remove();
-                if (submenu.length == 0) {
 
-                    a.addEventListener('click', myFunction);
-
-                }
-            }
-
-        });
+        })
     </script>
 
 </body>

@@ -118,7 +118,7 @@ li.dropdown {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: blue;
+    background-color:whitesmoke;
     z-index: 1;
 }
 
@@ -204,20 +204,22 @@ li.dropdown {
         text-align: left;
     }
 
-    .dropdown-content:hover {
+    /*.dropdown-content {
+        display: none;
+    }*/
+
+    .dropdown-content {
         display: none;
     }
 
-    .dropdown-content.submenu {
+    .open {
+        display: block;
         position: relative;
-        background-color: blueviolet;
     }
 
-    .dropdown-content.submenuNone {
-
-        /*position: relative;*/
-        background-color: blue;
-    }
+    /*.opacity {
+        opacity: 0;
+    }*/
 
     li {
         float: none;
