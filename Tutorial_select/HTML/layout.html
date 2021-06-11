@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
 </head>
 
@@ -16,7 +17,7 @@
             <li><a class="active">Bienvenido</a></li>
             <li><a href="javascript:void(0);" class="icon" onclick="myFunction()">M</a></li>
             <li class="dropdown">
-                <a href="#" class="dropbtn">Sistemas</a>
+                <a href="#" class="dropbtn">Sistemas <i class="fas fa-angle-down" style="float: right;"></i></a>
                 <ul class="dropdown-content opacity">
                     <a href="">Hola</a>
                     <a href="">Hola1</a>
@@ -40,20 +41,22 @@
                 x.className = "mytopNav";
             }
         }
-        
-        $(".dropdown .dropbtn").click(function (event) {
-            
-            var dropdown = $(this).parents(".dropdown");
-            var dropdownContent = $(dropdown).find(".dropdown-content");
 
-            $(".dropdown-content").not($(dropdownContent)).slideUp("slow").addClass("opacity");
-            $(".open").not($(dropdown)).removeClass("open");
+        if (innerWidth <= 600) {
+            $(".dropdown .dropbtn").click(function (event) {
 
-            $(dropdown).toggleClass("open");
-            $(dropdownContent).slideToggle("slow").toggleClass("opacity");
+                var dropdown = $(this).parents(".dropdown");
+                var dropdownContent = $(dropdown).find(".dropdown-content");
+
+                $(".dropdown-content").not($(dropdownContent)).slideUp("slow").addClass("opacity");
+                $(".open").not($(dropdown)).removeClass("open");
+
+                $(dropdown).toggleClass("open");
+                $(dropdownContent).slideToggle("slow").toggleClass("opacity");
 
 
-        })
+            })
+        }
     </script>
 
 </body>

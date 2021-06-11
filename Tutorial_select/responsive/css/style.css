@@ -4,8 +4,26 @@
     margin: 0;
 }
 
+/*---------------Login---------------*/
+
+.login {
+    width: 30%;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #f2f2f2;
+    margin: 0 auto;
+}
+
+.logo img{
+    width: 100%;
+}
 
 /*---------------Formularios---------------*/
+
+h1 {
+    text-align: center;
+    padding: 10px;
+}
 
 .container {
     width: 50%;
@@ -15,9 +33,7 @@
     margin: 0 auto;
 }
 
-input[type=text],
-select,
-textarea {
+input[type=text], select, textarea {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -29,10 +45,11 @@ textarea {
 input[type=submit] {
     background-color: #bc0723;
     color: white;
-    padding: 12px 20px;
+    padding: 9px 9px;
     border: 1px solid #000000;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 14px;
 }
 
 .group {
@@ -48,7 +65,7 @@ input[type=submit] {
 /*---------------Tablas---------------*/
 
 table {
-    width: 80%;
+    width: 100%;
     background-color: #f2f2f2;
     margin: 0 auto;
     border-collapse: collapse;
@@ -58,6 +75,7 @@ thead th {
     background-color: #bc0723;
     border: 1px solid #000000;
     padding: 8px;
+    color: #ffff;
 }
 
 tbody td {
@@ -75,6 +93,15 @@ tbody tr:nth-child(even) {
 }
 
 td a {
+    color: #fff;
+    background-color: #6c757d;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    padding: 5px;
+    text-decoration: none;
+}
+
+.return {
     color: #fff;
     background-color: #6c757d;
     border: 1px solid #000000;
@@ -152,45 +179,80 @@ li.dropdown {
     float: right;
 }
 
+/*---------------Modal---------------*/
+.modal {
+    display: none;
+}
+
+.modal-content {
+    position: relative;
+}
+
 @media screen and (max-width: 600px) {
     * {
         box-sizing: border-box;
     }
+    /*---------------Login---------------*/
+    .login {
+        width: 80%;
+        border-radius: 10px;
+        padding: 20px;
+        background-color: #f2f2f2;
+        margin: 0 auto;
+    }
+
     /*---------------Formularios---------------*/
     .input[type=text] {
         width: 100%;
         margin-top: 0;
+        font-size: .8em;
     }
+
     .form-row {
         display: block;
     }
+
     .group {
         width: 100%;
         margin: 0px;
     }
+
     .container {
-        width: 100%;
+        width: 90%;
     }
     /*---------------Tablas---------------*/
-    thead td {
+    /*thead td {
         display: block;
-    }
+    }*/
+
     tbody td {
         padding: 5px;
     }
+
     table {
-        width: 100%;
-        font-size: 10px;
+        width: 90%;
+        font-size: .8em;
+        display: block;
+        overflow-x: auto;
     }
     td a {
         display: inline-block;
         padding: 2px;
         margin: 2px;
     }
+
+    .return {
+        /*display: inline-block;
+        padding: 2px;
+        margin: 2px;*/
+        font-size: .8em;
+    }
+
     /*---------------menu---------------*/
     .mytopNav.responsive {
         position: relative;
     }
+
     .mytopNav.responsive .icon {
         position: absolute;
         right: 0;
@@ -201,40 +263,32 @@ li.dropdown {
         display: block;
         text-align: left;
     }
-    /*.dropdown-content {
-        display: none;
-    }*/
+
     .dropdown-content {
         display: none;
         position: relative;
     }
+
     .open {
         display: block;
         position: relative;
     }
-    /*.opacity {
-        opacity: 0;
-    }*/
+
     li {
         float: none;
     }
+
     li .icon {
         display: block;
         float: right;
     }
-    li a,
-    .dropbtn {
+
+    li a, .dropbtn {
         display: none;
     }
+
     .active {
         display: block;
         float: left;
-    }
-}
-
-@media screen and (max-width: 700px) {
-    /*---------------Formularios---------------*/
-    .container {
-        width: 100%;
     }
 }

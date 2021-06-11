@@ -39,6 +39,39 @@
     		</ul>
   	</nav>
 
+    <!-- Ventana modal Archivo -->
+    <div id="ModalFile" class="modal">
+
+<!-- Modal content -->
+<div class="modal-content">
+<div class="modal-header">
+<span class="close">&times;</span>
+<h2>Nuevo Archivo</h2>
+</div>
+<div class="modal-body">
+<?php
+  //include('views/modales/modalFile.php');
+?>
+<form class="" action="?controller=File&method=save" method="POST" enctype="multipart/form-data">
+<input type="file" name="file" id="file">
+<label for="area_id">Area</label>
+<select name="area_id" id="area_id">
+        <option>Seleccione...</option>
+        <?php
+        /*$are = $areas;*/
+            /*foreach ($areas as $areas) {
+                echo '<option value="'.$areas->id.'">'.$areas->name.'</option>';
+            }*/
+        ?>
+    </select>
+<button type="submit">Cargar</button>
+</form>
+</div>
+<!--<div class="modal-footer">
+</div>-->
+</div>
+</div>
+
     <!-- Ventana modal Cargo -->
     <div id="ModalCargo" class="modal">
 
@@ -103,39 +136,6 @@
 <?php
       include('views/modales/modalArea.php');
     ?>
-</div>
-<!--<div class="modal-footer">
-</div>-->
-</div>
-</div>
-
-        <!-- Ventana modal Archivo -->
-        <div id="ModalFile" class="modal">
-
-<!-- Modal content -->
-<div class="modal-content">
-<div class="modal-header">
-  <span class="close">&times;</span>
-  <h2>Nuevo Archivo</h2>
-</div>
-<div class="modal-body">
-<?php
-      //include('views/modales/modalFile.php');
-    ?>
-    <form class="" action="?controller=File&method=save" method="POST" enctype="multipart/form-data">
-    <input type="file" name="file" id="file">
-    <label for="area_id">Area <?php print_r($areas); ?></label>
-    <select name="area_id" id="area_id">
-            <option>Seleccione...</option>
-            <?php
-            $are = $areas;
-                foreach ($are as $areas) {
-                    echo '<option value="'.$areas->id.'">'.$areas->name.'</option>';
-                }
-            ?>
-        </select>
-    <button type="submit">Cargar</button>
-  </form>
 </div>
 <!--<div class="modal-footer">
 </div>-->
