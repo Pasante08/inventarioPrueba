@@ -1,0 +1,3 @@
+Habilitar firewall de contabilidad
+desabilitar windows update 
+Quitar lenguajes en SAP

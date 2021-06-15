@@ -87,7 +87,7 @@
         </div>
         <div>
             <input type="submit" class="bc-save" value="Guardar">
-            <input type="submit" class="bc-cancel" value="Cancelar">
+            <input type="button" class="bc-cancel" onclick="history.back()" value="Cancelar">
         </div>
     </form>
 </div>

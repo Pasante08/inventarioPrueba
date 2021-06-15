@@ -38,6 +38,8 @@
             $id = $_REQUEST['id'];
               $files = new File;
               $files = $files->getAll($id);
+              $areas = new Area;
+              $areas = $areas->getAll();
               require 'views/layout.php';
               require 'views/file/listArchiveAdmin.php';
           }
@@ -119,8 +121,9 @@
         {
           try {
             if (isset($_POST)) {
-              print_r($_POST);
-              die();
+              /*print_r($_POST);
+              die();*/
+              unset($_POST['areas']);
               $this->userModel->editUser($_POST);
               header('Location: ?controller=user');
             }else{

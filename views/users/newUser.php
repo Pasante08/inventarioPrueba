@@ -1,6 +1,6 @@
 <h1>Nuevo usuario</h1>
 <div class="container">
-    <form action="?controller=User&method=save">
+    <form action="?controller=user&method=save" method="POST">
         <div class="form-row">
             <div class="group">
                 <label for="name">Nombres:</label>
@@ -45,7 +45,7 @@
                     <option>Seleccione...</option>
                     <?php
                     foreach ($areas as $areas) {
-                        echo '<option value="' . $areas->id . '">' . $areas->name . '</option>';
+                        echo '<option value="'.$areas->id.'">'.$areas->name.'</option>';
                     }
                     ?>
                 </select>
@@ -58,29 +58,8 @@
         </div>
         <div>
             <input type="submit" class="bc-save" value="Guardar">
-            <input type="submit" class="bc-cancel" value="Cancelar">
+            <input type="button" class="bc-cancel" onclick="history.back()" value="Cancelar">
+            
         </div>
     </form>
 </div>
-<script type="text/javascript">
-    $(document).ready(function(){
-    $('#areasList').val(1);
-    recargarLista();
-
-    $('#areasList').change(function(){
-        recargarLista();
-    });
-})
-
-
-function recargarLista(){
-    $.ajax({
-        type:"POST",
-        url:"?controller=user&method=chargesAreas",
-        data:"area=" + $('#areasList').val(),
-        success:function(r){
-            $('#charge_id').html(r);
-        }
-    });
-}
-</script>

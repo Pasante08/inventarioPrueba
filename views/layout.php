@@ -13,19 +13,21 @@
 </head>
 <body>
     <?php
-        include_once "index.php";
+        include "index.php";
     ?>
     <nav>
         <ul id="nav" class="topNav">
             <li><a class="active">Bienvenido</a></li>
+            <!--<li><div class="active"><img src="img/logo_nuruena_min.png" alt="Logo" title="Nurueña"></div></li>-->
             <li><a href="#" class="icon" onclick="menuResponsive();">M</a></li>
             <li class="dropdown">
                 <a href="#" class="dropbtn">Sistemas <i class="fas fa-angle-down"></i></a>
                 <ul class="dropdown-content opacity">
                     <a href="?controller=User&method=newUser">Nuevo usuario</a>
                     <a href="?controller=Computer&method=newEquipo">Nuevo equipo</a>
-                    <a href="?controller=User&method=listGeneral">Lista usuarios</a>
-                    <a href="btnModal">Nuevo archivo</a>
+                    <a href="?controller=User&method=Index">Lista usuarios</a>
+                    <a href="?controller=Computer">Lista equipos</a>
+                    <a href="#" id="btnModal">Nuevo archivo</a>
                 </ul>
             </li>
             <li><a href="?controller=User&method=listArchiveAdmin&id=Cartera">Cartera</a></li>
@@ -41,7 +43,7 @@
         </ul>
     </nav>
     <script>
-        //Abrir y cerrar submenu 
+        //Abrir y cerrar submenu
         if (innerWidth <= 600) {
             $(".dropdown .dropbtn").click(function (event) {
 

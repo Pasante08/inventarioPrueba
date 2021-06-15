@@ -18,7 +18,7 @@
       public function Index()
       {
         $areas = $this->areaModel->getAll();
-        require 'views/';
+        //require 'views/';
       }
 
       public function new()

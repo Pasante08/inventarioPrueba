@@ -43,7 +43,7 @@ h1 {
     margin: 0 auto;
 }
 
-input[type=text], input[type=number], input[type=password], select, textarea {
+input[type=text], input[type=number], input[type=password], input[type=file], select, textarea {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -52,7 +52,7 @@ input[type=text], input[type=number], input[type=password], select, textarea {
     box-sizing: border-box;
 }
 
-input[type=submit] {
+input[type=submit], input[type=button] {
     color: white;
     padding: 9px 9px;
     border: 1px solid #000000;
@@ -154,9 +154,13 @@ li {
     display: inline-block;
     color: white;
     text-align: center;
-    padding: 20px 18px;
+    /*padding: 20px 18px;*/
     text-decoration: none;
 }
+
+/*.active img {
+    width: 100%;
+}*/
 
 li a,
 .dropbtn {
@@ -165,6 +169,7 @@ li a,
     text-align: center;
     padding: 20px 18px;
     text-decoration: none;
+    font-size: 15px;
 }
 
 li.dropdown {
