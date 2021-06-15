@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,7 +11,6 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
 </head>
-
 <body>
     <nav>
         <ul id="myNav" class="mytopNav">
@@ -50,8 +48,6 @@
 
                 $(dropdown).toggleClass("open");
                 $(dropdownContent).slideToggle("slow").toggleClass("opacity");
-
-
             })
         }
     </script>

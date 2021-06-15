@@ -13,20 +13,21 @@
         Inicio de sesión
     </h1>
     <div class="login">
-        <form action="index.php">
+        <form action="table.php">
             <div class="logo">
                 <img src="img/logo_nuruena_min.png" alt="logo" title="Nurueña">
             </div>
             <div>
-                <label for="">Usuario</label>
+                <label for="">Usuario:</label>
                 <input type="text">
             </div>
             <div>
-                <label for="">Contraseña</label>
+                <label for="">Contraseña:</label>
                 <input type="text">
             </div>
-
-            <input type="submit" value="Ingresar">
+            <div class="btnIngresar">
+                <input type="submit" value="Ingresar">
+            </div>
         </form>
     </div>
 </body>

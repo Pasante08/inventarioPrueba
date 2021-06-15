@@ -5,7 +5,9 @@ require "layout.php";
 <div>
     <h1>Prueba</h1>
 </div>
-    <a href="#" class="return">Volver</a>
+<div class="return">
+    <a href="#" class="btnReturn">Volver</a>
+</div>
 <table>
     <thead>
         <th>ID</th>
@@ -20,8 +22,8 @@ require "layout.php";
             <td>miguelangel fabio</td>
             <td>Perez Garcia</td>
             <td>juanperezgarcia08976@correo.com</td>
-            <td><a href="">Eliminar</a>
-                <a href="">Editar</a>
+            <td><a href="" class="bc-cancel">Eliminar</a>
+                <a href="form.php" class="bc-save">Editar</a>
             </td>
         </tr>
         <tr>
@@ -29,8 +31,8 @@ require "layout.php";
             <td>Lola</td>
             <td>Lopez</td>
             <td>corre@correo.com</td>
-            <td><a href="layout.html">Eliminar</a>
-                <a href="layout.html">Editar</a>
+            <td><a href="#"  class="bc-cancel">Eliminar</a>
+                <a href="form.php" class="bc-save">Editar</a>
             </td>
         </tr>
     </tbody>

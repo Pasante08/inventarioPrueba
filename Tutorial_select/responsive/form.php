@@ -4,7 +4,7 @@ require "layout.php";
 
 <h1>Formulario</h1>
 <div class="container">
-    <form action="table.html">
+    <form action="table.php">
         <div class="form-row">
             <div class="group">
                 <label for="">Nombre</label>
@@ -36,8 +36,9 @@ require "layout.php";
             </div>
         </div>
         <div>
-            <input type="submit" value="save">
-            <input type="submit" value="Hola">
+
+            <input type="submit" class="bc-save" value="Guardar">
+            <input type="submit"  class="bc-cancel" value="Cancelar">
         </div>
     </form>
 </div>

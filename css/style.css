@@ -25,6 +25,7 @@
 .btnIngresar input[type=submit] {
     width: 80%;
     font-size: 17px;
+    background-color: #bc0723;
 }
 
 /*---------------Formularios---------------*/
@@ -42,7 +43,7 @@ h1 {
     margin: 0 auto;
 }
 
-input[type=text], select, textarea {
+input[type=text], input[type=number], input[type=password], select, textarea {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -324,16 +325,16 @@ li.dropdown {
     }
 
     /*---------------menu---------------*/
-    .mytopNav.responsive {
+    .topNav.responsive {
         position: relative;
     }
 
-    .mytopNav.responsive .icon {
+    .topNav.responsive .icon {
         position: absolute;
         right: 0;
         top: 0;
     }
-    .mytopNav.responsive a {
+    .topNav.responsive a {
         float: none;
         display: block;
         text-align: left;
