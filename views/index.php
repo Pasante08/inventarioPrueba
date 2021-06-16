@@ -1,3 +1,8 @@
+<?php
+    /*require 'models/areaModel.php';*/
+    $areas = new Area;
+    $areas = $areas->getAll();
+?>
 <div id="wModal" class="modal">
     <div class="modal-content">
         <div class="modal-header">
@@ -18,9 +23,12 @@
                         <select name="area_id" id="area_id">
                             <option>Seleccione...</option>
                             <?php
-                                $ar = $areas;
-                                foreach ($ar as $are) {
-                                    echo '<option value="' . $are->id . '">' . $are->name . '</option>';
+                                //$ar = $areas;
+                                /*foreach ($ar as $ares) {
+                                    echo '<option value="' . $ares->id . '">' . $ares->name . '</option>';
+                                }*/
+                                foreach ($areas as $areas) {
+                                    echo '<option value="' . $areas->id . '">' . $areas->name . '</option>';
                                 }
                             ?>
                         </select>

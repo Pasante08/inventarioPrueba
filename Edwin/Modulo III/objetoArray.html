@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+        var $lenguajes=new Array();
+        var $img=new Array("img/feliz.png", "img/serio.png", "img/triste.png", "img/peter.gif", "img/imgW/img (1)_1024x640.jpg")
+        $lenguajes[0]="HTML";
+        $lenguajes[1]="CSS";
+        $lenguajes[2]="JS";
+        $lenguajes[3]="PHP";
+        $lenguajes[4]="SQL";
+        function consulta(){
+          var $posicion=prompt("ingresa un número");
+          var $imag=document.getElementById("imag");
+          alert($lenguajes[$posicion]);
+          $imag.setAttribute("src", $img[$posicion]);
+        }
+    </script>
+  </head>
+  <body>
+      <input type="button" value="consultar"
+      onclick="consulta();">
+      <img id="imag" src="" alt="" />
+  </body>
+</html>

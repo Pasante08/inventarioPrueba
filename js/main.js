@@ -1,4 +1,4 @@
-//Abrir y cerrar el menu 
+//Abrir y cerrar el menu
 function menuResponsive() {
     var x = document.getElementById("nav");
     if (x.className === "topNav") {
@@ -11,7 +11,7 @@ function menuResponsive() {
 $(document).ready(function () {
     $('#areasList').val(1);
     recargarLista();
-    
+
     $('#areasList').change(function () {
         recargarLista();
     });
@@ -45,6 +45,18 @@ function recargarListaEdit(){
     });
 }
 
+function validateip() {
+  jQuery.ajax({
+    type:"POST",
+    url: "?controller=Computer&method=validateIP",
+    data:"ip=" + $('#ip').val(),
+    success:function(data) {
+      $("#ipValidate").html(data);
+    },
+    error:function () {}
+  });
+}
+
 window.onload = function () {
 
     var modal = document.getElementById("wModal");
@@ -53,7 +65,7 @@ window.onload = function () {
     btn.onclick = abrirModal;
     function abrirModal() {
         modal.style.display = "block";
-        
+
     }
 
     span.onclick = function () {
@@ -66,3 +78,5 @@ window.onload = function () {
         }
     }
 }
+
+

@@ -10,9 +10,12 @@
 <body>
   <h1>Inicio de sesión</h1>
   <div class="login">
-    <form action="index.php?controller=User&method=ctrIngreso" method="POST">
+    <form action="index.php?controller=User&method=ctrIngreso" method="POST" >
       <div class="logo">
         <img src="img/logo_nuruena_min.png" alt="logo" title="Nurueña">
+      </div>
+      <div class="alert" id="warning">
+        <span>Usuario y/o contraseña incorrectos</span>
       </div>
       <div>
         <label for="user">Usuario</label>
@@ -23,7 +26,7 @@
         <input type="password" placeholder="Ingrese su contraseña" name="password" id="password" required>
       </div>
       <div class="btnIngresar">
-        <input type="submit" value="Ingresar">
+        <input id="login" type="submit" value="Ingresar">
       </div>
     </form>
   </div>

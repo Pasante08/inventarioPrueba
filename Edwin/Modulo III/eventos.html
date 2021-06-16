@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+        function saludo(texto){
+          alert("Evento: " + texto);
+        }
+    </script>
+  </head>
+  <body onload="saludo('cargar Página')">
+    <a href="#" onclick="saludo('clic')">Haz Clic</a>
+    <p onmousemove="saludo('al mover mouse')"
+        style="background:sandybrown;">
+      mueve el mouse acá
+    </p>
+    <select onchange="saludo('al cambiar la selección')">
+        <option value="1">html</option>
+        <option value="2">css</option>
+        <option value="1">js</option>
+    </select>
+    <input type="text" onfocus="saludo('al recibir el enfoque')">
+    <input type="text" onblur="saludo('al perder enfoque')" >
+    <input type="text">
+
+  </body>
+</html>

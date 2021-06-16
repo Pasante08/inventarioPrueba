@@ -1,6 +1,6 @@
 <h1>Nuevo equipo</h1>
 <div class="container">
-    <form action="?controller=Computer&method=save">
+    <form action="?controller=Computer&method=save" method="POST">
         <div class="form-row">
             <div class="group">
                 <label for="computer">Equipo</label>
@@ -29,7 +29,8 @@
         <div class="form-row">
             <div class="group">
                 <label for="ip">Extensión IP</label>
-                <input type="number" name="ip" id="ip">
+                <input type="number" name="ip" id="ip" onblur="validateip()">
+                <span id="ipValidate"></span>
             </div>
             <div class="group">
                 <label for="ipTel">Extensión IP teléfono</label>
@@ -59,8 +60,6 @@
                     ?>
                 </select>
             </div>
-        </div>
-        <div class="form-row">
             <div class="group">
                 <label for="win_version">Versión de S.O</label>
                 <select name="win_version" id="win_version">
@@ -71,18 +70,24 @@
                     <option value="Windows_7_x32">Windows 7 x32</option>
                 </select>
             </div>
+        </div>
+        <div class="form-row">
             <div class="group">
                 <label for="active">Esta versión tiene licencia?</label>
-                <input type="radio" name="active" value="✔">
-                <label>Si</label>
-                <input type="radio" name="active" value="X">
-                <label>No</label>
+                <div>
+                    <input type="radio" name="active" value="✔">
+                    <label>Si</label>
+                </div>
+                <div>
+                    <input type="radio" name="active" value="X">
+                    <label>No</label>
+                </div>
             </div>
         </div>
         <div class="form-row">
             <div class="group">
                 <label for="comment">Observaciones</label>
-                <textarea name="comment" id="comment" rows="3" placeholder="Ingrese las observaciones del equipo"></textarea>
+                <textarea class="textArea" name="comment" id="comment" rows="3" placeholder="Ingrese las observaciones del equipo"></textarea>
             </div>
         </div>
         <div>

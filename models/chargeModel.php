@@ -39,12 +39,16 @@
         try {
           $strSql = "SELECT *
                 FROM charge
-                WHERE id <>:id
-                AND area_id =".$idArea."";
+                WHERE id <> :id";
+                /*AND area_id =".."";*/
           $arrayData = ['id' => $id];
+          /*print($strSql);
+          die();*/
           /*print_r($arrayData);
           die();*/
           return $this->pdo->select($strSql, $arrayData);
+          /*print_r($res);
+          die();*/
         } catch (PDOException $e) {
           die($e->getMessage());
         }

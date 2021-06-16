@@ -1,0 +1,14 @@
+* {margin:0px;padding: 0px;}
+section{display: flex; width:100%;margin-top:10px;
+        justify-content: space-around;}
+article {background-color:steelblue;
+         width:23%; text-align: center;}
+img{width:80%; height:auto;}
+@media all and (max-width:768px) {
+  section{flex-wrap:wrap;}
+  article{width:46%;margin-top:10px;}
+}
+@media all and (max-width:480px) {
+  section{flex-wrap:wrap;}
+  article{width:95%;margin-top:10px;}
+}

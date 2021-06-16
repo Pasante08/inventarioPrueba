@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>Mi primer JS</title>
+  </head>
+  <body>
+    <h1>JS</h1>
+    <h2>Primeros pasos</h2>
+      <script>
+            document.write("<strong>Hola</strong>");
+            var $apellido; var $nombre; var $edad;
+            $nombre="Brendan";
+            $apellido="Eich";
+            $edad=50;
+            document.write($nombre + " " + $apellido);
+            document.write("<br>Tienes " + $edad + " años")
+      </script>
+      <h2>Operadores Aritméticos</h2>
+      <pre>
+            $numero1=5;
+            $numero2=2;
+            $resultado=$numero1+$numero2
+      </pre>
+      <script>
+          var $numero1; var $numero2; var $resultado;
+          $numero1=5;
+          $numero2=2;
+          $resultado=$numero1+$numero2;
+          document.write("La respuesta es " + $resultado);
+      </script>
+      <pre>
+            $resultado=$numero1 % $numero2
+      </pre>
+      <script>
+          $resultado=$numero1 % $numero2
+          document.write("La respuesta es " + $resultado);
+      </script>
+      <h2>Operadores de Asignación</h2>
+      <pre>
+        $numero1+=$numero2
+      </pre>
+      <script>
+          $numero1+=$numero2
+          document.write("El valor de $numero1 es "
+          + $numero1);
+      </script>
+      <pre>
+        $numero1-=$numero2
+      </pre>
+      <script>
+          $numero1-=$numero2
+          document.write("El valor de $numero1 es "
+          + $numero1);
+      </script>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+* {margin:0px; padding:0px;}
+.padre{width:300px; height:300px;
+        background-color:orange;
+        display: flex;
+        flex-direction: row;
+        }
+.hijo{background-color:steelblue;
+      width:150px; height:50px;
+      /*flex-basis:50px;*/
+      }
+.hijo:nth-child(1){flex-shrink:1;}
+.hijo:nth-child(2){background-color:deepskyblue;
+                   flex-shrink:2;}
+.hijo:nth-child(3){flex-shrink:3;}

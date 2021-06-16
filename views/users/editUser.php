@@ -45,12 +45,12 @@
         </div>
         <div class="form-row">
             <div class="group">
-                <label for="areas">Area</label>
+                <label for="areas">Area <?php //print_r($aresss->id); ?></label>
                 <select name="areas" id="areas">
                     <?php
-                    echo '<option selected value="'.$are->id.'">'.$are->name.'</option>';
-                    $area = new Area;
-                    $areas = $area->getAll();
+                    echo '<option selected value="'.$aresss[0]->id.'">'.$aresss[0]->name.'</option>';
+                    /*$area = new Area;
+                    $areas = $area->getAll();*/
                     foreach ($areas as $ar) {
                         echo '<option value="'.$ar->id.'">'.$ar->name.'</option>';
                     }

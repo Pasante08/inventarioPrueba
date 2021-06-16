@@ -36,7 +36,7 @@ class Computer
                 INNER JOIN users u
                 ON u.id = e.user_id
                 INNER JOIN workstation w
-                ON w.id = e.workstation_id";
+                ON w.id = e.workstation_id ORDER BY ip ASC";
             return $this->pdo->select($strSql);
         } catch (PDOException $e) {
             die($e->getMessage());
@@ -57,7 +57,7 @@ class Computer
     public function newEquipo($data)
     {
         try {
-            $this->pdo->insert("equipo", $data);
+                $this->pdo->insert("equipo", $data);
         } catch (PDOException $e) {
             die($e->getMessage());
         }

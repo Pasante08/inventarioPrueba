@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title></title>
+    <script src="js/obtenerElementos.js">
+    </script>
+  </head>
+  <body>
+    <form  >
+      <fieldset>
+          <legend>Datos Personales</legend>
+          <label for="txtNombre">Nombre</label>
+          <input type="text" id="txtNombre">
+          <label for="txtApellido">Apellido</label>
+          <input type="text" id="txtApellido">
+          <input type="button"  value="concatenar"
+          onclick="concatenar();">
+          <input type="text" id="txtConcatenar">
+      </fieldset>
+    </form>
+    <form >
+      <fieldset>
+        <label for="">Ingrese el nombre de un site</label>
+        <input type="text" id="txtSite" style="width:400px;">
+        <input type="button" value="go" onclick="navegar();">
+      </fieldset>
+    </form>
+    <form >
+        <fieldset>
+          <legend>Traducir</legend>
+          <select id="cmbPalabras" onchange="traducir();">
+              <option value="-">seleccione</option>
+              <option value="1">Tree</option>
+              <option value="2">God</option>
+              <option value="3">Brown</option>
+          </select>
+          <input type="text" id="txtPalabra" disabled>
+        </fieldset>
+    </form>
+
+
+  </body>
+</html>

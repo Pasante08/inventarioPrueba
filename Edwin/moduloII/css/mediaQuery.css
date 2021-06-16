@@ -1,0 +1,10 @@
+* {margin: 0px; padding:0px;}
+
+.contenedor{background-color:aqua;}
+
+@media all and (max-width:768px) {
+  .contenedor{background-color:peru;}
+}
+@media all and (max-width:480px) {
+  .contenedor{background-color:green;}
+}

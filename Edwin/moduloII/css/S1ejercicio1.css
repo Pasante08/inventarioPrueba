@@ -1,0 +1,23 @@
+*{margin:0px;}
+header, footer{height:40px;color:white;
+        background-color:steelblue;}
+ul{float:left;}
+li{display:inline-block;
+   border-style: solid;
+   border-width: 1px;
+   border-color:skyblue;
+   width:80px;
+   text-align: center;}
+.bandera{
+  width:50px; height:30px;
+  float: right;
+}
+.color1{height:50%; background-color:yellow;}
+.color2{height:25%; background-color:blue;}
+.color3{height:25%; background-color:red;}
+
+img{width:180px;margin-left:5px;}
+footer{text-align:right;
+      position:absolute;
+      left:0px; bottom:0px;
+      width:100%}

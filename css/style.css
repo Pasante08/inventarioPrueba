@@ -5,6 +5,16 @@
 }
 
 /*---------------Login---------------*/
+.alert {
+    width: 100%;
+    border-radius: 5px;
+    margin: 5px auto;
+    padding: 20px;
+    background-color: #888;
+    color: white;
+    text-align: center;
+    display: none;
+}
 
 .login {
     width: 30%;
@@ -16,6 +26,7 @@
 
 .logo img{
     width: 100%;
+    height: auto;
 }
 
 .btnIngresar {
@@ -70,12 +81,19 @@ input[type=submit], input[type=button] {
     display: flex;
 }
 
+.validate {
+  color: red;
+}
+
+.textArea {
+    resize: none;
+}
 
 /*---------------Tablas---------------*/
 
 table {
     width: 80%;
-    background-color: #f2f2f2;
+    background-color: #ffffff;
     margin: auto;
     border-collapse: collapse;
 }
@@ -267,6 +285,11 @@ li.dropdown {
         box-sizing: border-box;
     }
     /*---------------Login---------------*/
+    .alert {
+        font-size: .8em;
+        padding: 10px;
+    }
+
     .login {
         width: 70%;
         border-radius: 10px;

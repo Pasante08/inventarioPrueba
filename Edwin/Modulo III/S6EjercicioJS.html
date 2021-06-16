@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>Ejercicio</title>
+  </head>
+  <body>
+    <script>
+    var $n1; var $n2; var $n3; var $prom;
+    $n1=prompt("Ingrese nota1");
+    $n2=parseInt(prompt("Ingrese nota2"));
+    $n3=prompt("Ingrese nota3");
+    $n3=parseInt($n3);
+    $prom=(parseInt($n1)+$n2+$n3)/3;
+    </script>
+    <div class="contenedor">
+      <div class="blanco">
+        Promedio
+      </div>
+      <div class="blanco">
+        <div class="circulo">
+          N1:
+          <script>
+            document.write($n1);
+          </script>
+        </div>
+        <div class="circulo">
+          N2:
+          <script>
+            document.write($n3);
+          </script>
+        </div>
+        <div class="circulo">
+          N3:
+          <script>
+            document.write($n3);
+          </script>
+        </div>
+      </div>
+      <div class="blanco">
+        Tu nota es:
+        <script>
+          document.write($prom);
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>Bucle For</title>
+    <script src="js/bucleFor.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <h1>Bucle For</h1>
+    <p> Serie</p>
+    <script>
+        serie();
+    </script>
+    <p>Encabezados</p>
+    <script>
+      var $i;
+      for ($i=1;$i<=6;$i++)
+        document.write("<h" + $i + ">Bucles</h" + $i + ">");
+    </script>
+    <p>
+      Lista
+    </p>
+    <ul>
+      <script>
+        for ($i=1; $i<=5; $i++)
+          document.write("<li>Elemento " + $i + "</li>");
+      </script>
+    </ul>
+    <p> Tabla </p>
+    <table border="2">
+      <tr><td>TITULO CELDAS</td></tr>
+      <script>
+      for ($i=1; $i<=20; $i++)
+        document.write("<tr><td>Celda " + $i + "</td></tr>");
+      </script>
+    </table>
+    <form >
+      <fieldset>
+        <legend>Fecha Nacimiento</legend>
+        <label >año</label>
+        <select >
+            <option value="-">Seleccione</option>
+            <script>
+              for ($i=1916;$i<=2016;$i++)
+                document.write("<option value='" + $i +
+                "'>" +  $i + "</option>");
+            </script>
+        </select>
+        <label >Mes</label>
+        <select >
+            <option value="-">Seleccione</option>
+            <script>
+              for ($i=1;$i<=12;$i++)
+                document.write("<option value='" + $i +
+                "'>" +  $i + "</option>");
+            </script>
+        </select>
+        <label >dia</label>
+        <select >
+            <option value="-">Seleccione</option>
+            <script>
+              for ($i=1;$i<=31;$i++)
+                document.write("<option value='" + $i +
+                "'>" +  $i + "</option>");
+            </script>
+        </select>
+      </fieldset>
+    </form>
+
+
+  </body>
+</html>

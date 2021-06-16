@@ -14,7 +14,7 @@
             <td><?php echo $file->name ?></td>
             <td>
                 <a href="Doc/<?php echo $file->name; ?>" download="<?php echo $file->name?>" class="bc-save">Descargar</a>
-                <a href="?controller=File&method=delete&id=<?php echo $file->id ?>&name=Doc/<?php echo $file->name?>" class="bc-cancel">Eliminar</a>
+                <a href="?controller=File&method=delete&id=<?php echo $file->id ?>&name=Doc/<?php echo $file->name?>" onclick="return confirm('Esta seguro de eliminar ?')" class="bc-cancel">Eliminar</a>
             </td>
         </tr>
         <?php endforeach ?>

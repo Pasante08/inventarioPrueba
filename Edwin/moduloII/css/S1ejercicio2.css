@@ -1,0 +1,16 @@
+*{margin:0px;}
+html, body{height:100%;}
+footer, header{width:120px; height:100%;
+              background-color:steelblue;color:white;}
+section{width:70%; text-align:center;}
+header, section{float:left;}
+footer{position:absolute;top:0px;right:0px;
+       text-align: right;}
+.bandera{
+  width:50px; height:30px; position: absolute;
+  bottom:10px; left:35px;
+}
+.color1{height:50%; background-color:yellow;}
+.color2{height:25%; background-color:blue;}
+.color3{height:25%; background-color:red;}
+img{width:180px;margin-left:5px;}

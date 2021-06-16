@@ -105,14 +105,18 @@
               /*print_r($charge);
               die();*/
               $idC = $charge[0]->id;
+              /*print($idC);
+              die();*/
               $area_id = $charge[0]->area_id;
               /*print($area_id);
               die();*/
               $charges = $char->getAllExp($idC, $area_id);
-              print_r($charges);
-              die();
-              $are = $ar->getById($area_id);
-              $idA = $are[0]->id;
+              /*print_r($charges);
+              die();*/
+              $aresss = $ar->getById($area_id);
+              /*print_r($are);
+              die();*/
+              $idA = $aresss[0]->id;
               $areas = $ar->getAllExp($idA);
               /*print_r($area);
               die();*/
@@ -175,12 +179,8 @@
                         }
                     }
                     else{
-                        echo "<script>
-                            if(window.history.replaceState)
-                            {
-                                window.history.replaceState(null, null, window.location.href);
-                            }
-                            window.location = 'index.html';
+                      echo "<script>
+                            
                         </script>";
                     }
                 }

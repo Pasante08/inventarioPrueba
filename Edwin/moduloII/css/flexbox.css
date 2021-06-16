@@ -1,0 +1,23 @@
+.padre{background-color:steelblue; width:300px; height:300px;
+      display: flex;
+      flex-direction:row;
+      flex-wrap: wrap;
+      justify-content:center;
+      align-items:baseline;
+      /*align-content: center;*/
+      }
+
+.hijo{background-color:skyblue;
+    width:80px; height:80px;
+    color:white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+.hijo:nth-child(1){align-self:flex-end; order:2}
+.hijo:nth-child(2){background-color:sandybrown;
+                   align-self: center;
+                   order:3}
+.hijo:nth-child(3){order:1}
+                   

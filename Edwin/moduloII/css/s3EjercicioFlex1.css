@@ -1,0 +1,15 @@
+*{margin:0px;padding:0px;}
+html,body{height:100%;}
+.contenedor{background-color:steelblue;
+width:100%; height:100%;display: flex;
+            flex-direction: row;}
+.izquierda{background-color:orange;
+          width:120px; flex-grow:0;}
+.derecha {background-color: brown;
+          width:200px;flex-grow:1;
+          overflow: scroll;
+          }
+nav{width:100px;margin:10px;
+    display:flex;flex-direction:column;}
+a{background-color:rgba(136, 64, 12, 0.87);
+  margin-top:2px;}

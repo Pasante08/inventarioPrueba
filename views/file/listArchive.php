@@ -19,11 +19,9 @@
             <td><?php echo $file->id ?></td>
             <td><?php echo $file->name ?></td>
             <td>
-                <a href="Doc/<?php echo $file->name; ?>" download="<?php echo $file->name?>">Descargar</a>
-                <a href="?controller=File&method=delete&id=<?php echo $file->id ?>&name=Doc/<?php echo $file->name?>">Eliminar</a>
+                <a href="Doc/<?php echo $file->name; ?>" download="<?php echo $file->name?>" class="bc-save">Descargar</a>
             </td>
         </tr>
         <?php endforeach ?>
     </tbody>
 </table>
-

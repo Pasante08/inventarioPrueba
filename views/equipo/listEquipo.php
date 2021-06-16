@@ -16,8 +16,8 @@
                 <td><?php echo $equipos->computer ?></td>
                 <td><?php echo "192.158.0.". + $equipos->ip ?></td>
                 <td><?php echo $equipos->users ?></td>
-                <td><a href="?controller=Computer&method=edit&id=<?php echo $equipos->id; ?>" class="btn btn-edit">Editar</a>
-                    <a href="?controller=Computer&method=delete&id=<?php echo $equipos->id; ?>" class="btn btn-delete" onclick="return confirm('Esta seguro de eliminar ?')">Eliminar</a></td>
+                <td><a href="?controller=Computer&method=edit&id=<?php echo $equipos->id; ?>" class="bc-save">Editar</a>
+                    <a href="?controller=Computer&method=delete&id=<?php echo $equipos->id; ?>" onclick="return confirm('Esta seguro de eliminar ?')" class="bc-cancel">Eliminar</a></td>
             </tr>
         <?php endforeach ?>
     </tbody>
