@@ -92,15 +92,25 @@
             if (isset($_REQUEST['id'])) {
               $id = $_REQUEST['id'];
               $users = $this->userModel->getById($id);
+              /*print_r($users);
+              die();*/
               $charge_id = $users[0]->charge_id;
+              /*print($charge_id);
+              die();*/
               $sedes = new Sede;
               $char = new Charge;
               $ar = new Area;
               $sedes = $sedes->getAll();
               $charge = $char->getById($charge_id);
+              /*print_r($charge);
+              die();*/
               $idC = $charge[0]->id;
               $area_id = $charge[0]->area_id;
+              /*print($area_id);
+              die();*/
               $charges = $char->getAllExp($idC, $area_id);
+              print_r($charges);
+              die();
               $are = $ar->getById($area_id);
               $idA = $are[0]->id;
               $areas = $ar->getAllExp($idA);

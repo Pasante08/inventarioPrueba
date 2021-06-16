@@ -18,9 +18,7 @@
                         <select name="area_id" id="area_id">
                             <option>Seleccione...</option>
                             <?php
-                                require_once "models/areaModel.php";
-                                $areas = new Area;
-                                $ar = $areas->getAll();
+                                $ar = $areas;
                                 foreach ($ar as $are) {
                                     echo '<option value="' . $are->id . '">' . $are->name . '</option>';
                                 }

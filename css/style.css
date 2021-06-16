@@ -154,13 +154,9 @@ li {
     display: inline-block;
     color: white;
     text-align: center;
-    /*padding: 20px 18px;*/
+    padding: 20px 18px;
     text-decoration: none;
 }
-
-/*.active img {
-    width: 100%;
-}*/
 
 li a,
 .dropbtn {

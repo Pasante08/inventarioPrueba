@@ -40,7 +40,7 @@
         </div>
         <div class="form-row">
             <div class="group">
-                <label for="areasList">Area</label>
+                <label for="areasList">Area <?php /*print_r($areas);*/ ?></label>
                 <select name="areasList" id="areasList" class="input-form">
                     <option>Seleccione...</option>
                     <?php
@@ -59,7 +59,7 @@
         <div>
             <input type="submit" class="bc-save" value="Guardar">
             <input type="button" class="bc-cancel" onclick="history.back()" value="Cancelar">
-            
+
         </div>
     </form>
 </div>
