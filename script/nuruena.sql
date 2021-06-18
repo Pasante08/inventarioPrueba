@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-05-2021 a las 06:00:55
+-- Tiempo de generación: 18-06-2021 a las 06:44:21
 -- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 8.0.5
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `area` (
   `id` int(12) NOT NULL,
-  `name` varchar(30) NOT NULL
+  `name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -46,7 +46,8 @@ INSERT INTO `area` (`id`, `name`) VALUES
 (7, 'Mercadeo'),
 (8, 'Tesorería'),
 (9, 'Mostrador'),
-(10, 'Sistemas');
+(10, 'Sistemas'),
+(11, 'Compras');
 
 -- --------------------------------------------------------
 
@@ -56,7 +57,7 @@ INSERT INTO `area` (`id`, `name`) VALUES
 
 CREATE TABLE `charge` (
   `id` int(12) NOT NULL,
-  `name` varchar(30) NOT NULL,
+  `name` varchar(50) NOT NULL,
   `area_id` int(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -75,7 +76,10 @@ INSERT INTO `charge` (`id`, `name`, `area_id`) VALUES
 (8, 'Coordinador documental ', 3),
 (9, 'Supervisor de ventas ', 7),
 (10, 'Almacenista JR', 6),
-(11, 'Asistente JR', 4);
+(11, 'Asistente JR', 4),
+(12, 'Pasante sistemas', 10),
+(15, 'Coordinador Administración', 4),
+(16, 'Asistente compras', 11);
 
 -- --------------------------------------------------------
 
@@ -85,12 +89,12 @@ INSERT INTO `charge` (`id`, `name`, `area_id`) VALUES
 
 CREATE TABLE `equipo` (
   `id` int(12) NOT NULL,
-  `serial` varchar(20) NOT NULL,
-  `computer` varchar(20) NOT NULL,
-  `provider` varchar(20) NOT NULL,
-  `model` varchar(30) NOT NULL,
-  `ip` int(5) NOT NULL,
-  `ipTel` int(5) NOT NULL,
+  `serial` varchar(50) NOT NULL,
+  `computer` varchar(30) NOT NULL,
+  `provider` varchar(30) NOT NULL,
+  `model` varchar(40) NOT NULL,
+  `ip` varchar(16) NOT NULL,
+  `ipTel` varchar(16) NOT NULL,
   `win_Version` varchar(20) NOT NULL,
   `active` char(1) NOT NULL,
   `comment` varchar(500) NOT NULL,
@@ -106,10 +110,29 @@ CREATE TABLE `equipo` (
 
 CREATE TABLE `file` (
   `id` int(12) NOT NULL,
-  `name` varchar(40) NOT NULL,
-  `location` varchar(30) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `location` varchar(50) NOT NULL,
   `area_id` int(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `roles`
+--
+
+CREATE TABLE `roles` (
+  `id` int(12) NOT NULL,
+  `name` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `roles`
+--
+
+INSERT INTO `roles` (`id`, `name`) VALUES
+(1, 'admin'),
+(2, 'usuario');
 
 -- --------------------------------------------------------
 
@@ -138,14 +161,25 @@ INSERT INTO `sede` (`id`, `name`) VALUES
 
 CREATE TABLE `users` (
   `id` int(12) NOT NULL,
-  `name` varchar(40) NOT NULL,
-  `userSap` varchar(30) NOT NULL,
-  `user` varchar(20) NOT NULL,
-  `password` varchar(20) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `userSap` varchar(50) NOT NULL,
+  `user` varchar(30) NOT NULL,
+  `password` varchar(30) NOT NULL,
   `ext` int(10) NOT NULL,
   `sede_id` int(12) NOT NULL,
-  `charge_id` int(12) NOT NULL
+  `charge_id` int(12) NOT NULL,
+  `rol_id` int(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `userSap`, `user`, `password`, `ext`, `sede_id`, `charge_id`, `rol_id`) VALUES
+(1, 'Juan Manuel Marcelo', 'pas.sis', 'sistemas', 'Reinoso01', 1075, 1, 12, 1),
+(2, 'William Andrés Sánchez ', 'Así.tes2', 'tesoreria', 'usuario', 1033, 1, 4, 2),
+(7, 'Yeny Lorena Mariño Rojas', '', 'admin', 'usuario', 1180, 2, 15, 2),
+(8, 'Fernanda Lozano', 'asi.com1', 'compras', 'usuario', 1260, 2, 16, 2);
 
 -- --------------------------------------------------------
 
@@ -155,7 +189,7 @@ CREATE TABLE `users` (
 
 CREATE TABLE `workstation` (
   `id` int(12) NOT NULL,
-  `name` varchar(30) NOT NULL
+  `name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -202,6 +236,12 @@ ALTER TABLE `file`
   ADD KEY `area_id` (`area_id`);
 
 --
+-- Indices de la tabla `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `sede`
 --
 ALTER TABLE `sede`
@@ -212,8 +252,9 @@ ALTER TABLE `sede`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `sede_id` (`sede_id`),
-  ADD KEY `charge_id` (`charge_id`);
+  ADD KEY `charge_id` (`charge_id`),
+  ADD KEY `rol_id` (`rol_id`),
+  ADD KEY `sede_id` (`sede_id`);
 
 --
 -- Indices de la tabla `workstation`
@@ -229,25 +270,31 @@ ALTER TABLE `workstation`
 -- AUTO_INCREMENT de la tabla `area`
 --
 ALTER TABLE `area`
-  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `charge`
 --
 ALTER TABLE `charge`
-  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `equipo`
 --
 ALTER TABLE `equipo`
-  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `file`
 --
 ALTER TABLE `file`
   MODIFY `id` int(12) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `sede`
@@ -259,7 +306,7 @@ ALTER TABLE `sede`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `workstation`
@@ -294,8 +341,9 @@ ALTER TABLE `file`
 -- Filtros para la tabla `users`
 --
 ALTER TABLE `users`
-  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`sede_id`) REFERENCES `sede` (`id`),
-  ADD CONSTRAINT `users_ibfk_2` FOREIGN KEY (`charge_id`) REFERENCES `charge` (`id`);
+  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`charge_id`) REFERENCES `charge` (`id`),
+  ADD CONSTRAINT `users_ibfk_2` FOREIGN KEY (`rol_id`) REFERENCES `roles` (`id`),
+  ADD CONSTRAINT `users_ibfk_3` FOREIGN KEY (`sede_id`) REFERENCES `sede` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
