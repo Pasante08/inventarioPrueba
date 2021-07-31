@@ -80,6 +80,8 @@
         {
           if (isset($_POST)) {
             $this->computerModel->editEquipo($_POST);
+            echo "<script>alert('Usuario actualizado correctamente');
+                 window.history.go(-2);</script>";
             header('Location: ?controller=computer');
           }else {
             echo "Error, acciòn no permitida";
