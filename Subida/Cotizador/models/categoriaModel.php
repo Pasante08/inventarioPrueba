@@ -18,6 +18,8 @@ class Categoria
     public function newCategoria($data)
     {
         try {
+            print_r($data);
+            die();
             $this->pdo->insert("categoria", $data);
         } catch (PDOException $e) {
             die($e->getMessage());

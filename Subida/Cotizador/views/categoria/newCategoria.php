@@ -11,17 +11,15 @@
 <body>
     <div class="container">
         <h2>Nuevo archivo</h2>
-        <div>
-            <div>
-                <form action="?controller=categoria&method=save" method="POST">
+            <div class="outer-container">
+                <form action="?controller=categoria&method=save" method="POST" enctype="multipart/form-data">
                     <div>
-                        <label for=""></label>
+                        <label for="">Elija Archivo Excel</label>
                         <input type="file" id="file" name="file" accept=".xls,.xlsx">
-                        <input type="submit" value="Cargar registros">
+                        <input type="submit" value="Cargar registros" class="btn-submit">
                     </div>
                 </form>
             </div>
-        </div>
     </div>
 </body>
 </html>
